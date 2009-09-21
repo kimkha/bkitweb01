@@ -1,8 +1,12 @@
 <?php
-
+	
+	$content = $vars['content'];
+	
 	$html = <<<EOT
 
-This is content
+<div id='main-content'>
+	$content
+</div>
 	
 EOT;
 	

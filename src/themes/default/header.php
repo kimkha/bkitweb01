@@ -2,12 +2,9 @@
 
 	$html = <<<EOT
 
-<html>
-<head>
-	<title>BKITWeb</title>
-</head>
-<body>
+
 	<div id='header'>
+	Logo is here
 	</div>
 	
 EOT;
