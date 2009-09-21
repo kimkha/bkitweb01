@@ -1,0 +1,3 @@
+Hi, !NAME!!
+You just registered our site with !EMAIL!. Please wait Admin confirm your form.
+Thanks.
