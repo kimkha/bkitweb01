@@ -1,6 +1,6 @@
 <?php
 
-$DB = array(
+$DBInfo = array(
 	'host' => 'localhost',
 	'username' => 'root',
 	'password' => '',
