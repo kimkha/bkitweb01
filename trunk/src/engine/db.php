@@ -1,5 +1,13 @@
 <?php
-  $DB = NULL;
+
+  $DB = array(
+  	'Info' => NULL, // Info of connection config
+  	'resource' => NULL, // resource link to database
+  	'selected' => NULL, // Selected table
+  	'prefix' => '', // Table prefix to insert into SQL query
+  );
+  
+  
   function get_connection_config()
   {  
         require('config.php');
@@ -7,18 +15,21 @@
   }
   function start_connection()
     {
-        $dbInfo = get_connection_config();      //get database config
-        foreach ($dbInfo as $key => $value)     //parse array to vars
+        global $DB;
+        $DB['Info'] = get_connection_config();      //get database config
+        foreach ($DB['Info'] as $key => $value)     //parse array to vars
         {
             $$key = $value;
         }
        
-        global $DB;
-        $DB = mysql_connect($host, $username, $password);  //ding, ding
-        if (!$DB)
+        $DB['resource'] = mysql_connect($host, $username, $password);  //ding, ding
+        if (!$DB['resource'])
         {
             die('Can not connect to database. Error code:' . mysql_error());
         }
+        
+      $DB['selected'] = mysql_select_db($DB['Info'][database_name], $DB['resource']);  //select bkitweb database
+      
       //else
       //   return $DB;
     }
@@ -51,22 +62,19 @@
   function close_connection()
     {
         global $DB;
-        if (isset($DB))
+        if (isset($DB['resource']))
         {
-            mysql_close($DB);
+            mysql_close($DB['resource']);
         }
     }
   function db_query($query)
   {
       global $DB;
-      $dbInfo = get_connection_config();
-      
-      $is_selected = mysql_select_db($dbInfo[database_name],$DB);  //select bkitweb database
       
       //if success, run query
-      if ($is_selected)
+      if ($DB['selected'])
       {
-          $clearQuery = mysql_real_escape_string($query);
+          $clearQuery = mysql_real_escape_string(trim($query));
           return mysql_query($clearQuery);
       }  
   }
