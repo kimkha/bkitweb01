@@ -7,7 +7,10 @@ class BKITMail {
 	var $to_name;     //Receiver's name <string>
 	var $mid;         //Mid of template mail in database <int>
 	var $template;    //Template of email, has some replacer to insert some value <string>
-	var $replacement = array('key'=>'','value'=>''); //Pair of replacer and replacement <array>
+	var $replacement = array(
+		'%USERNAME%'=>'thanhvuttv', 
+		'%EMAIL%'=>'thanhvutvv@gmail.com'
+		); //Pair of replacer and replacement <array>
 	
 	
 	//Function
