@@ -74,32 +74,30 @@
       //if success, run query
       if ($DB['selected'])
       {
-          $clearQuery = mysql_real_escape_string(trim($query));
+          //$clearQuery = mysql_real_escape_string(trim($query),$DB['resource']);
+          $clearQuery = $query;
           return mysql_query($clearQuery);
       }  
   }
   function get_data($query, $datatype)
   {
-      $queryResult = db_query($query); //get resources from db
+      $query_result = db_query($query); //get resources from db
       
-      $bkitObjectArray = array(); //array of object for each result row
-      if ($queryResult)
+      $bkit_object_array = array(); //array of object for each result row
+      if ($query_result)
       {
-          while ($row = mysql_fetch_assoc($queryResult))
+          while ($row = mysql_fetch_assoc($query_result))
           {
-                $bkitObject = get_dataclass($datatype);
+                $bkit_object = get_dataclass($datatype);
                
                //set object atrribute
                 foreach ($row as $key => $value)       
                 {
-                    $bkitObject->set($key, $value);
+                    $bkit_object->set($key, $value);
                 }
-                array_push($bkitObjectArray, $bkitObject);
+                array_push($bkit_object_array, $bkit_object);
           }
       }
-      return $bkitObjectArray;
+      return $bkit_object_array;
   }
- start_connection();
- get_data('select * from profile', 'user');
- close_connection();
 ?>
