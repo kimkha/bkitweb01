@@ -1,100 +1,104 @@
 <?php
-// Code by hungvjnh
 class BKITEvent{
+	
 	private $eid;
 	private $name;
 	private $title;
-	private $headline;
-	private $content;
-	private $image;
+	private $headline;//HTML of headline
+	private $content;//HTML of full content
+	private $image;//Full URL of image (this attributes is not inserted to database)
+	private $image_name ;//filename of image. Image upload to ./upload/images/ folder
 	private $time_created;
 	private $time_updated;
+	// 8 biến private
 	
+	//Get value of attribute by name..........[TESTED]
 	function get($name){
 		return $this->$name;
 	}
-
+	
+	//Set value of attribute by name..........[TESTED]
 	function set($name, $value){
-		if($this->$name = $value)
-			return true;
-		else 
-			return false;
+		$this->$name = $value;
+		return true;
 	}
 
+	//Save this event to database..........[TESTED]
 	function save(){
+		//[database] eid 	name 	title 	headline 	content 	image 	time_created 	time_updated
 		global $DB;
-		$sql = "SELECT * FROM ".$DB['table_prefix']."event WHERE `eid` = {$this->eid} LIMIT 1;";
-		$yes = db_query($sql);
-		if($yes == false || !$yes)
-			$do = "INSERT INTO ".$DB['table_prefix']."event (`name`, `title`, `headline`, `content`, `image`, `time_created`, `time_updated`) VALUE ('{$this->name}','{$this->title}','{$this->headline}','{$this->content}','{$this->image}',now(),'');";
+		$yes	 = get_event($this->eid);
+
+		if(count($yes) == 0)
+			$do  = "INSERT INTO ".$DB['Info']['table_prefix']."event (`name`,
+																	  `title`,
+																	  `headline`,
+																	  `content`,
+																	  `image`,
+																	  `time_created`)
+																	VALUE ('{$this->name}',
+																   '{$this->title}',
+																   '{$this->headline}',
+																   '{$this->content}',
+																   '{$this->image}',
+																   ".time().");";
 		else 
-			$do = "UPDATE ".$DB['table_prefix']."event SET `title` = '{$this->title}', `name` = '{$this->name}', `headline` = '{$this->headline}', `content` = '{$this->content}', `image` = '{$this->image}', `time_updated` = NOW() WHERE eid = '{$this->eid}' ;";
+			$do = "UPDATE ".$DB['Info']['table_prefix']."event SET `title` = '{$this->title}',
+														   `name` = '{$this->name}',
+														   `headline` = '{$this->headline}',
+														   `content` = '{$this->content}',
+														   `image` = '{$this->image}',
+														   `time_updated` = ".time()."
+														   WHERE eid = '{$this->eid}' ;";
 
 		$check = db_query($do) or die(mysql_error());
-		if($check == false || !$check)
-			return false;
-		else 
+		if($check)
 			return $this->eid;
+		else 
+			return FALSE;
 	}
-	/*
-	-	delete(): Delete this event in database
-	o	Return: 
-			false: if error
-			int: eid of deleted row
-	*/
+	//delete(): Delete this event in database..........[TESTED]
 	function delete(){
-		$sql = "DELETE * FROM ".$DB['table_prefix']."event WHERE eid = '{$this->eid}'";
-		if(db_query($sql) == false)
-			return false;
-		else 
+		global $DB;
+		$sql = "DELETE FROM ".$DB['Info']['table_prefix']."event WHERE `eid` = '{$this->eid}'";
+		$do = db_query($sql);
+		if($do)
 			return $this->eid;
+		else 
+			return FALSE;
 	}	
 }
-/*
-	-	get_event(eid): Get BKITEvent object by eid
-	o	Param:
-			eid: <int> eid of event to get
-	o	Return:
-			false: if error
-			BKITEvent: if succeed
-
-*/
+//get_event(eid): Get BKITEvent object by eid..........[TESTED]
 function get_event($eid){
 		global $DB;
-		$sql = "SELECT * FROM ".$DB['table_prefix']."event WHERE eid = '{$eid}' LIMIT 1;";
-		if(get_data($sql,'event') == false)
-			return false;
-		else {
-			$Event = get_data($sql,'event');
-		}
-		return $Event;
+		$sql = "SELECT * FROM ".$DB['Info']['table_prefix']."event WHERE `eid` = '{$eid}' LIMIT 1;";
+		$do =  get_data($sql,'event');
+		if(count($do) == 0)
+			return FALSE;
+		else return $do;
 }
-/*
--	get_events(order_by, limit, offset, min_time_created, max_time_created): Get list of BKITEvent object
-	o	Param:
-			order_by: <string> Order list by. Default: “time_created ASC”
-			limit: <int> Numbers of list. Default: 10
-			offset: <int> List start at. Default: 0
-			min_time_created: <int> Unix time, time_created of BKITEvent must be greater than. Default: 0
-			max_time_created: <int> Unix time, time_created of BKITEvent must be less than. Default: 0 (unlimited) 
-	o	Return:
-			false: if error
-			Array of BKITEvent objects if success
-*/
-function get_events($order_by, $limit, $offset = 0, $min_time_created = 0, $max_time_created = 0){
+
+//..........[TESTED]
+function get_events($order_by = "time_created ASC", $limit = 10, $offset = 0, $min_time_created = 0, $max_time_created = 0){
 		global $DB;
-		if($min_time_created == 0 && $max_time_created == 0)
-			$sql = "SELECT * FROM ".$DB['table_prefix']."event ORDER BY {$order_by} LIMIT {$limit} OFFSET {$offset};";
-		else
-			$sql = "SELECT * FROM ".$DB['table_prefix']."event WHERE (`time_create` > {$min_time_created} AND `time_create` < {$max_time_created}) ORDER BY {$order_by} LIMIT {$limit} OFFSET {$offset};";
+		$min		= mysql_real_escape_string($min_time_created);
+		$max 		= mysql_real_escape_string($max_time_created);
+		$order_by 	= mysql_real_escape_string($order_by);
+		$offset		= mysql_real_escape_string($offset);
+		$limit 		= mysql_real_escape_string($limit);
 		
-		if(get_data($sql,'event') == false)
-			return false;
-		else {
-			$events  = array();
-			while($Event = get_data($sql,'event'))
-				array_push($events,$Event);
-		}
-	return $events;	
+		$sql = "SELECT * FROM ".$DB['Info']['table_prefix']."event WHERE 1 ";
+		
+		if($min != 0)
+			$sql = $sql."AND `time_created` >= {$min} ";
+		if($max != 0)	 
+			$sql = $sql."AND `time_created` <= {$max} ";
+		
+		$sql = $sql."ORDER BY {$order_by} LIMIT {$offset},{$limit}";
+
+		$do = get_data($sql,'event');
+		if($do == FALSE || count($do) == 0)
+			return FALSE;		
+	return $do;	
 }
 ?>
