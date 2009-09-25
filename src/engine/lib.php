@@ -5,19 +5,19 @@ function page_draw($title, $varss){
 	// Draw completed page, output to client side
 	// View Themes here
 	global $CONFIG;
-	// $vars['content'], $vars['sidebar']
-	$varss['title'] = $title;
+
+	$vars['title'] = $title;
 	$header   = view_theme('header', $varss);
 	$footer   = view_theme('footer', $varss);
 	$content  = view_theme('content', $varss);
 	$sidebar  = view_theme('sidebar', $varss);
-	$varss['body'] = $header.$footer.$content.$sidebar;
-	$pageview  = view_theme('canvas',$varss);
+	$vars['body'] = $header.$content.$sidebar.$footer;
+	// Chú ý thứ tự gọi phải là content -> siderbar
+
+	$pageview  = view_theme('canvas',$vars);
 
 	echo $pageview;
-	//Arrange the components AND Echo HTML string to client.
 	shutdown();
-	// Load canvas.php ->header -> footer -> content -> sidebar
 }
 
 function view_theme($viewname, $cpt){
@@ -25,7 +25,9 @@ function view_theme($viewname, $cpt){
 	global $vars;
 	$dir = "themes/".$CONFIG['theme']."/".$viewname.".php";
 	$vars = $cpt;
-	return require_once($dir);
+	if(is_file($dir))
+	$value = include_once($dir);
+	return $value;
 }
 function shutdown(){
 	//Save all $CONFIG values
@@ -34,9 +36,7 @@ function shutdown(){
 function view($viewname, $vars){
 	if(file_exists($viewname))
 		require_once($viewname);
-	
-	//$vars['object']
-	//$vars['viewtype']
+	// Em không hiểu hàm này
 }
 
 function forward($url =  NULL){
