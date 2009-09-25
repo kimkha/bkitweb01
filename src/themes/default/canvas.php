@@ -6,7 +6,7 @@
  * ----------------------------------------------*/
 	$title = $vars['title'];
 	$body = $vars['body'];
-	
+	$dir = "themes/".$CONFIG['theme']."/";
 	$html = <<<EOT
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -24,19 +24,15 @@
 <meta name="robots" content="index, follow, noarchive" />
 <meta name="googlebot" content="noarchive" />
 
-<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="{$dir}css/screen.css" />
 
 </head>
 
 <body>
 <div id="wrap">
 
-	<div id="content-outer" class="clear"><div id="content-wrap">
-		<div id="content">
-		$body			
-		</div>
-	</div>
-			
+$body			
+		
 </div>
 </body>
 </html>

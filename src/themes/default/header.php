@@ -1,16 +1,15 @@
 <?php
 
 	$html = <<<EOT
-<!--header -->
-	<!--header -->
+
 	<div id="header">			
 				
-		<h1 id="logo-text"><a href="index.html" title="">Freshpick</a></h1>		
-		<p id="slogan">Just Another Styleshout CSS Template... </p>	
+		<h1 id="logo-text"><a href="index.html" title="">BHR Tool</a></h1>		
+		<p id="slogan">BkitWeb Human Resource Tool...</p>	
 		
 		<div  id="nav">
 			<ul>
-				<li class="first" id="current"><a href="index.html">Home</a></li>
+				<li class="first" id="current"><a href="index.php">Trang chủ</a></li>
 				<li><a href="style.html">Style Demo</a></li>
 				<li><a href="blog.html">Blog</a></li>
 				<li><a href="archives.html">Archives</a></li>
@@ -21,7 +20,6 @@
 		
 		<div id="header-image"></div>
 						
-	<!--header ends-->					
 	</div>
 	
 EOT;
