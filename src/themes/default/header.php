@@ -4,7 +4,7 @@
 
 	<div id="header">			
 				
-		<h1 id="logo-text"><a href="index.html" title="">BHR Tool</a></h1>		
+		<h1 id="logo-text"><a href="index.html" title="">BHR</a></h1>		
 		<p id="slogan">BkitWeb Human Resource Tool...</p>	
 		
 		<div  id="nav">
