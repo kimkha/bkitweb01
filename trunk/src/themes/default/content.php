@@ -3,21 +3,15 @@
 	$content = $vars['content'];
 	
 	$html = <<<EOT
+<div id="content-outer" class="clear"><div id="content-wrap">
+<div id="content">
 
 <div id="left">			
-	/*
-	<div class="entry">
-		<h3><a href="index.html">Aliquam Risus Justo</a></h3>
-			<p>	
-			</p>
-			<p><a class="more-link" href="index.html">continue reading</a></p>
-		</div>
-	*/
-	<div class="post">
-			
+
+	<div class="post">	
 		<h2><a href="index.html">Một bài viết mẫu</a></h2>
 			
-		<p class="post-info">Posted by <a href="index.html">admin</a> | Filed under <a href="index.html">templates</a>, <a href="index.html">internet</a>  </p>
+		<p class="post-info">Posted by <a href="index.html">admin</a> | Filed under  <a href="index.html">internet</a>  </p>
 				
 		<p>$content</p>
 			
@@ -29,7 +23,7 @@
 		<span class="date">April 20, 2009</span>	
 		</p>
 	</div>	
-				
+					
 				 
 				
 </div>
