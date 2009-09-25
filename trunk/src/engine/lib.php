@@ -1,25 +1,31 @@
 <?php
-// Em chưa hiểu cái Nguyên lý của anh Kha nên có gì code lại sau !!! Giờ em code tiếp bên event.php
 
 require_once('start.php');
-function page_draw($title, $content){
+function page_draw($title, $varss){
 	// Draw completed page, output to client side
 	// View Themes here
 	global $CONFIG;
-	$dir = $CONFIG['theme'];
-	$canvas  = view_theme($dir."canvas.php",$string);
-	$footer  = view_theme($dir."footer.php",$string);
-	$header  = view_theme($dir."header.php",$string);
-	$sidebar = view_theme($dir."sidebar.php",$string);
-	$content = view_theme($dir."content.php",$string);
+	// $vars['content'], $vars['sidebar']
+	$varss['title'] = $title;
+	$header   = view_theme('header', $varss);
+	$footer   = view_theme('footer', $varss);
+	$content  = view_theme('content', $varss);
+	$sidebar  = view_theme('sidebar', $varss);
+	$varss['body'] = $header.$footer.$content.$sidebar;
+	$pageview  = view_theme('canvas',$varss);
+
+	echo $pageview;
 	//Arrange the components AND Echo HTML string to client.
 	shutdown();
+	// Load canvas.php ->header -> footer -> content -> sidebar
 }
 
-function view_theme($viewname, $vars){
+function view_theme($viewname, $cpt){
+	global $CONFIG;
 	global $vars;
-	if(file_exists($viewname))
-		$value = require_once($viewname);
+	$dir = "themes/".$CONFIG['theme']."/".$viewname.".php";
+	$vars = $cpt;
+	return require_once($dir);
 }
 function shutdown(){
 	//Save all $CONFIG values
