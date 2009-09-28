@@ -29,7 +29,7 @@ class BKITEvent{
 		global $DB;
 		$yes	 = get_event($this->eid);
 
-		if(count($yes) == 0)
+		if($yes == false)
 			$do  = "INSERT INTO ".$DB['Info']['table_prefix']."event (`name`,
 																	  `title`,
 																	  `headline`,
