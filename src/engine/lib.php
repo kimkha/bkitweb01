@@ -56,7 +56,7 @@ function view($viewname, $vars = array()){
 		$value = include( dirname(__FILE__) . $file);
 	
 	if (isset($CONFIG['extend'][$viewname]) && is_array($CONFIG['extend'][$viewname]) && count($CONFIG['extend'][$viewname]) >0 ) {
-		foreach ($CONFIG['extend'][$viewname] as $view) {
+		foreach ($CONFIG['extend'][$viewname] as $key => $view) {
 			$value .= $view;
 		}
 	}
@@ -82,7 +82,7 @@ function forward($url = NULL){
 	header('Location:'.$url);	
 }
 
-function extend($viewname, $value="") {
+function extend($viewname, $value="", $piority = 501) {
 	global $CONFIG;
 	
 	if (!isset($CONFIG['extend']))
@@ -90,7 +90,12 @@ function extend($viewname, $value="") {
 	if (!isset($CONFIG['extend'][$viewname]))
 		$CONFIG['extend'][$viewname] = array();
 	
-	$CONFIG['extend'][$viewname][] = $value;
+	while (isset($CONFIG['extend'][$viewname][$piority]) && $CONFIG['extend'][$viewname][$piority] != "") {
+		$piority++;
+	}
+	$CONFIG['extend'][$viewname][$piority] = $value;
+	
+	ksort($CONFIG['extend'][$viewname]);
 }
 
 
