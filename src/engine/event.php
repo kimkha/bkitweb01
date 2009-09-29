@@ -40,14 +40,14 @@ class BKITEvent{
 																   '{$this->title}',
 																   '{$this->headline}',
 																   '{$this->content}',
-																   '{$this->image}',
+																   '{$this->image_name}',
 																   ".time().");";
 		else 
 			$do = "UPDATE ".$DB['Info']['table_prefix']."event SET `title` = '{$this->title}',
 														   `name` = '{$this->name}',
 														   `headline` = '{$this->headline}',
 														   `content` = '{$this->content}',
-														   `image` = '{$this->image}',
+														   `image` = '{$this->image_name}',
 														   `time_updated` = ".time()."
 														   WHERE eid = '{$this->eid}' ;";
 
