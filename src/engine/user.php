@@ -1,6 +1,7 @@
 <?php
 include_once('db.php');
 include_once('start.php');
+error_reporting ( 0 );
 class BKITUser
 {
         private $uid;
@@ -299,5 +300,5 @@ class BKITUser
        // login('kyo.cooro@gmail.com','8768f1ff177d8341bcc40a7210af50e9');
 //    $result = get_; //'kyo.cooro@gmail.com','8768f1ff177d8341bcc40a7210af50e9');
 //    logout();
- //$result = get_user_login();
+   // $result = get_user_login();
 ?>
