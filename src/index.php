@@ -1,18 +1,23 @@
 <?php
-	/* ------------------------------------------------------
-	 * BKIT WEB HUMAN RESOURCE TOOL
-	--------------------------------------------------------- */ 
+	
+	/**
+	 * BKITWEB Human Resource Tool
+	 * 
+	 * @author BKITWeb
+	 * @package bkitweb-01
+	 * @link http://www.bkitweb.com
+	 * @copyright The GNU General Public License (version 3)
+	 */
 	
 	// Include all functions and run at fisrt
 	include_once("engine/start.php");
-	include_once("engine/db.php");
-	include_once("engine/lib.php");
-	// Load All Template
-	$title = $CONFIG['title'];
-	$body['sidebar'] = "";
-	$body['content'] = "This is the first page -               vinh";
+	
+	$body = "This is the first page -               vinh";
+	
+	$example_meta = '<meta name="description" content="Site Description Here" />';
+	extend('metatags', $example_meta);
 	
 	// Draw the page and view it.
-	page_draw($title, $body);
+	page_draw('Homepage', $body);
 	
 ?>

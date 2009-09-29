@@ -6,6 +6,9 @@
  * ----------------------------------------------*/
 	$title = $vars['title'];
 	$body = $vars['body'];
+	
+	$metatags = view('metatags', array());
+	
 	$dir = "themes/".$CONFIG['theme']."/";
 	$html = <<<EOT
 
@@ -25,7 +28,7 @@
 <meta name="googlebot" content="noarchive" />
 
 <link rel="stylesheet" type="text/css" media="screen" href="{$dir}css/screen.css" />
-
+$metatags
 </head>
 
 <body>
