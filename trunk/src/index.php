@@ -12,10 +12,10 @@
 	// Include all functions and run at fisrt
 	include_once("engine/start.php");
 	
-	$body = "This is the first page -               vinh";
-	
 	$example_meta = '<meta name="description" content="Site Description Here" />';
 	extend('metatags', $example_meta);
+	
+	$body = "This is the first page -               vinh";
 	
 	// Draw the page and view it.
 	page_draw('Homepage', $body);
