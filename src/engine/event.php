@@ -10,20 +10,54 @@ class BKITEvent{
 	private $image_name ;//filename of image. Image upload to ./upload/images/ folder
 	private $time_created;
 	private $time_updated;
-	// 8 biến private
-	
-	//Get value of attribute by name..........[TESTED]
+
+
+	/**
+	 * Get value of attribute has $name
+	 * @param string $name : name of variable
+	 * @return mixed $this->$name : value of varibale
+	 */ 
+	 
 	function get($name){
 		return $this->$name;
 	}
 	
-	//Set value of attribute by name..........[TESTED]
+	/**
+	 * Set value of variable by name
+	 * @param string $name : name of variable
+	 * @param mixed $value : value of variable be set
+	 * @return true
+	 */
 	function set($name, $value){
 		$this->$name = $value;
 		return true;
 	}
-
-	//Save this event to database..........[TESTED]
+	
+	/**
+	 * Get shortContent from Content with has $length
+	 * @param int $length : length of shortContent
+	 * @return string $shortContent 
+	 */
+	function _vinh_shortContent($length = 350){
+		if(is_int($length) == false)
+			$shortContent = false;
+		elseif(strlen($this->content) > $length){
+			$pre = $length - 20;
+			$pos = strpos($this->content, " ", $pre);
+			if($pos === false)
+				$shortContent = substr($this->content, 0, $length);
+			else
+				$shortContent = substr($this->content, 0, $pos)."...";
+		}
+		return $shortContent;
+	}
+	
+	/**
+	 * Save this event to database
+	 * @param nothing
+	 * @return FALSE IF error
+	 * @return int $this->eid : eid of deleted row IF success 
+	 */
 	function save(){
 		//[database] eid 	name 	title 	headline 	content 	image 	time_created 	time_updated
 		global $DB;
@@ -57,7 +91,13 @@ class BKITEvent{
 		else 
 			return FALSE;
 	}
-	//delete(): Delete this event in database..........[TESTED]
+	
+	/**
+	 * Delete this event to database
+	 * @param nothing
+	 * @return FALSE IF error
+	 * @return int $this->eid : eid of deleted row IF success
+	 */
 	function delete(){
 		global $DB;
 		$sql = "DELETE FROM ".$DB['Info']['table_prefix']."event WHERE `eid` = '{$this->eid}'";
@@ -68,7 +108,13 @@ class BKITEvent{
 			return FALSE;
 	}	
 }
-//get_event(eid): Get BKITEvent object by eid..........[TESTED]
+
+/**
+ * Get BKITEvent object by eid
+ * @param int $eid: eid of BKITEvent Object
+ * @return FALSE IF error
+ * @return array() $do : array of result
+ */
 function get_event($eid){
 		global $DB;
 		$sql = "SELECT * FROM ".$DB['Info']['table_prefix']."event WHERE `eid` = '{$eid}' LIMIT 1;";
@@ -78,7 +124,16 @@ function get_event($eid){
 		else return $do;
 }
 
-//..........[TESTED]
+/**
+ * Get list of BKITEvent object
+ * @param string $order_by : Order list by. Default: “time_created ASC”
+ * @param int $limit : Numbers of list. Default: 10
+ * @param int $offset: List start at. Default: 0
+ * @param int $min_time_created: Unix time, time_created of BKITEvent must be greater than. Default: 0
+ * @param int $max_time_created: <int> Unix time, time_created of BKITEvent must be less than. Default: 0 (unlimited) 
+ * @return FALSE IF error
+ * @return array() : Array of BKITEvent objects IF success
+ */
 function get_events($order_by = "time_created ASC", $limit = 10, $offset = 0, $min_time_created = 0, $max_time_created = 0){
 		global $DB;
 		$min		= mysql_real_escape_string($min_time_created);
