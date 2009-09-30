@@ -1,7 +1,12 @@
 <?php
 include_once('db.php');
-include_once('start.php');
-error_reporting ( 0 );
+//include_once('start.php');
+error_reporting(0);
+class BKITUserSkill
+{
+    public $key;
+    public $value = array('skillname' => 'd', 'level' => 0, 'skillcategory' => 'd');
+}
 class BKITUser
 {
         private $uid;
@@ -66,8 +71,15 @@ class BKITUser
                                                            . var_export($this->hobby, true) . ", "
                                                            . var_export($this->status, true) . ", "
                                                            . var_export($this->time_created, true) . ", "
-                                                           . var_export($this->time_updated, true) . ") " ;
-               $result = db_query($query);  
+                                                           . var_export($this->time_updated, true) . "); ";
+               foreach ($this->skills as $key => $value)
+               {
+                    $query = $query."INSERT INTO user_skill VALUES (" .   var_export($this->uid, true) . ", " 
+                                                                       .   var_export($value->key, true) . ", "     
+                                                                       .   var_export($value->value['level'], true) . ");";
+                    $result = $result & db_query($query);
+               } 
+                 
                if ($result)
                {
                    return mysql_insert_id($DB['resource']);
@@ -75,7 +87,7 @@ class BKITUser
             }
             else
             {
-                $query = "UPDATE profile SET " ."uid = "           . var_export($this->uid, true) . ", "
+                $query = "UPDATE profile SET " ."uid = "           . var_export((int)$this->uid, true) . ", "
                                                 ."firstname = "     . var_export($this->firstname, true) . ", "
                                                 ."lastname = "      . var_export($this->lastname, true) . ", "
                                                 ."birthday = "      . var_export($this->birthday, true) . ", "
@@ -90,8 +102,17 @@ class BKITUser
                                                 ."status = "        . var_export($this->status, true) . ", "
                                                 ."time_created = "  . var_export($this->time_created, true) . ", "
                                                 ."time_updated = "  . var_export($this->time_updated, true)
-                                                ."WHERE uid = " . var_export($this->uid, true);
+                                                ." WHERE uid = " . var_export((int)$this->uid, true) . ";";
                 $result = db_query($query);
+                foreach ($this->skills as $key => $value)
+               {
+                    $query = "UPDATE user_skill SET uid = "    .   var_export((int)$this->uid, true) . ", " 
+                                                        ."sid = "      .   var_export($value->key, true) . ", "     
+                                                        ."level ="     .   var_export($value->value['level'], true)
+                                                        ." WHERE uid = " .   var_export((int)$this->uid, true) . " AND " 
+                                                        ."sid = "       .   var_export($value->key, true). ";"; 
+                   $result = $result & db_query($query);                                          
+               }
                 if ($result) 
                 {
                     return $this->uid;
@@ -103,6 +124,9 @@ class BKITUser
         {
             include_once('db.php');
             $query = "DELETE FROM profile WHERE uid = ".var_export($this->uid, true);
+            $result = db_query($query);
+            
+            $query = "DELETE FROM user_skill WHERE uid = ".var_export($this->uid, true);
             $result = db_query($query);
             if ($result)
                 return $this->uid;
@@ -268,8 +292,8 @@ class BKITUser
         }
         
         //save login info to cookie
-        setcookie('user_email',$email);
-        setcookie('user_password', $password);
+        setcookie('user_email',$email, time() + 60 * 60 * 24 * 7, '/');
+        setcookie('user_password', $password, time() + 60 * 60 * 24 * 7, '/');
         
         //add login user to $CONFIG
         global $CONFIG;
@@ -296,8 +320,24 @@ class BKITUser
             setcookie('user_password');
         }
     }
-   // start_connection();
-       // login('kyo.cooro@gmail.com','8768f1ff177d8341bcc40a7210af50e9');
+    start_connection();
+    $t = get_user(2);
+    $a = new BKITUser();
+    $a->set('uid',1);
+    $a->delete();
+    $t1 = new BKITUserSkill();
+    $t1->key = 9;
+    $t1->value['level'] = 1;
+    
+    $t2 = new BKITUserSkill(); 
+    $t2->key = 10;
+    $t2->value['level'] = 2;
+    $as =  $t[0]->get('skills');
+    array_push($as, $t1);
+    array_push($as, $t2);
+    $t[0]->set('skills', $as);
+    $t[0]->save();
+    //login('kyo.cooro@gmail.com','8768f1ff177d8341bcc40a7210af50e9');
 //    $result = get_; //'kyo.cooro@gmail.com','8768f1ff177d8341bcc40a7210af50e9');
 //    logout();
    // $result = get_user_login();
