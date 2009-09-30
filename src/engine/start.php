@@ -14,7 +14,7 @@
 // Init $CONFIG
 	global $CONFIG;
 	$CONFIG = array(
-		'root' => 'http://localhost/_project/_project1/src/',
+		'root' => get_root(),
 		'title' => 'Human Resource Website',
 		'theme' => 'default',
 		'user' => array(),

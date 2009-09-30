@@ -28,18 +28,6 @@ function page_draw($title, $body){
 	shutdown();
 }
 
-function view_theme($viewname, $vars = array()){
-	global $CONFIG;
-	
-	$file = "themes/".$CONFIG['theme']."/".$viewname.".php";
-	
-	$value = "";
-	if(is_file($file))
-		$value .= include( dirname(__FILE__) . $file);
-	
-	return $value;
-}
-
 function shutdown(){
 	//Save all $CONFIG values
 	
@@ -96,6 +84,23 @@ function extend($viewname, $value="", $piority = 501) {
 	$CONFIG['extend'][$viewname][$piority] = $value;
 	
 	ksort($CONFIG['extend'][$viewname]);
+}
+
+function get_root() {
+	$host = 'http://'.$_SERVER['HTTP_HOST'];
+	$directory = dirname($_SERVER['SCRIPT_NAME']);
+	$root = $directory == '/' ? $host.'/' : $host.$directory.'/';
+	return $root;
+}
+
+function get_input($name, $default = '') {
+	if (isset($_GET[$name]))
+		return $_GET[$name];
+	
+	if (isset($_POST[$name]))
+		return $_POST[$name];
+	
+	return $default;
 }
 
 
