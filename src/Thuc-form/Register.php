@@ -33,9 +33,9 @@
 <body>
 <div id="apDiv1"></div>
 <form action="Confirm.php" method="post" name="frmMain">
-<table width="803" border="0">
+<table width="778" border="0">
   <tr>
-    <td width="284" height="389" rowspan="2"><fieldset>
+    <td width="284" height="389" rowspan="2" valign="top"><fieldset>
       <legend>Thông Tin Cá Nhân</legend>
       <p>
         <label><strong>Nguyện Vọng</strong></label>
@@ -116,7 +116,7 @@
       <p>&nbsp;</p>
       <p>&nbsp;</p>
     </fieldset></td>
-    <td width="509"><fieldset>
+    <td width="484" valign="top"><fieldset>
       <legend>Kỹ Năng Chuyên Môn</legend>
       <ul>
         <li>1: Chưa biết</li>
@@ -212,8 +212,8 @@
       <div id="skill2" style="text-align: center; margin: 3px; padding: 3px; float: left;">
         <table width="400" border="0" cellspacing="0">
           <tr>
-            <td width="169"><div align="right">PHP:</div></td>
-            <td width="219"><table width="219" border="0">
+            <td width="172"><div align="right">PHP:</div></td>
+            <td width="224"><table width="219" border="0">
               <tr>
                 <td width="50"><label>
                   <input name="PHPSkill" type="radio" value="1" checked="checked" />
