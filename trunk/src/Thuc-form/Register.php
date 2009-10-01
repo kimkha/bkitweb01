@@ -24,45 +24,18 @@
 	float: left;
 	border: thin solid #03C;
 }
-#skill1 {
-	margin: 3px;
-	padding: 3px;
-	float: left;
-}
-#note1 {
-	margin: 3px;
-	padding: 3px;
-	float: left;
-}
-#skill2 {
-	text-align: center;
-	margin: 3px;
-	padding: 3px;
-	float: left;
-}
-#note2 {
-	margin: 3px;
-	padding: 3px;
-	float: left;
-}
-#name {
-	margin-top: 11px;
-	margin-bottom: 11px;
-}
-.infoDiv {
-	margin-top: 5px;
-	margin-bottom: 5px;
-	text-align: left;
-}
+
+
 -->
 </style>
 </head>
 
 <body>
+<div id="apDiv1"></div>
 <form action="Confirm.php" method="post" name="frmMain">
-<table width="1234" border="1">
+<table width="1139" border="0">
   <tr>
-    <td width="538" height="389"><fieldset>
+    <td width="406" height="389" rowspan="2"><fieldset>
       <legend>Thông Tin Cá Nhân</legend>
       <p>
         <label><strong>Nguyện Vọng</strong></label>
@@ -72,142 +45,165 @@
       <p><strong>Sở Thích:</strong></p>
       <p>
         <textarea name="txtHobby" id="txtHobby" cols="55" rows="5"></textarea>
-      </p>
-      <div class="infoDiv" id="name">Họ và Tên:  
-        <input name="txtName" type="text" id="txtName" size="30" />
-      </div>
-      <div class="infoDiv" id="birthday">Ngày Sinh: 
-        <input type="text" name="txtBirthday" id="txtBirthday" />
-      </div>
-      <div class="infoDiv" id="sex">Giới Tính   :
-        
+      </p> 
+      <table width="400" border="0" align="left">
+        <tr>
+          <td nowrap="nowrap"><div align="right">Họ tên</div></td>
+          <td width="243">
+            <input name="txtName" type="text" id="txtName" size="20" />
+          </td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap"><div align="right">Ngày Sinh:</div></td>
+          <td>
+            <input type="text" name="txtBirthday" id="txtBirthday" />
+          </td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap"><div align="right">Giới Tính:</div></td>
+          <td>
           <label>
             <input name="radSex" type="radio" id="radSex_0" value="Male" checked="checked" />
             Male</label>
           <label>
             <input type="radio" name="radSex" value="Female" id="radSex_1" />
             Female</label>
-
-      </div>
-      <div class="infoDiv" id="course">Khóa: 
-        <select name="lstCourse" size="1" id="lstCourse">
-          <option>2003</option>
-          <option>2004</option>
-          <option>2005</option>
-          <option>2006</option>
-          <option>2007</option>
-          <option>2008</option>
-          <option selected="selected">2009</option>
-        </select>
-      </div>
-      <div class="infoDiv" id="address">Địa Chỉ Liên Lạc:
-        <input type="text" name="txtAddress" id="txtAddress" />
-      </div>
-      <div class="infoDiv" id="phone">Số Điện Thoại: 
-        <input type="text" name="txtPhone" id="txtPhone" />
-      </div>
-      <div class="infoDiv" id="yahooid">YahooID:
-        <input type="text" name="txtYahoo" id="txtYahoo" />
-      </div>
-      <div class="infoDiv" id="email">Email:
-        <input type="text" name="txtEmail" id="txtEmail" />
-      </div>
-<p>&nbsp;</p>
+          </td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap"><div align="right">Sinh Viên Khóa:</div></td>
+          <td>
+            <select name="lstCourse" size="1" id="lstCourse">
+              <option>2003</option>
+              <option>2004</option>
+              <option>2005</option>
+              <option>2006</option>
+              <option>2007</option>
+              <option>2008</option>
+              <option selected="selected">2009</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap"><div align="right">Địa Chỉ Liên Lạc</div></td>
+          <td>
+            <input type="text" name="txtAddress" id="txtAddress" />
+          </td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap"><div align="right">Số Điện Thoại</div></td>
+          <td>
+          <input type="text" name="txtPhone" id="txtPhone" />
+          </td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap"><div align="right">YahooID</div></td>
+          <td>
+            <input type="text" name="txtYahoo" id="txtYahoo" />
+          </td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap"><div align="right">Email:</div></td>
+          <td>
+            <input type="text" name="txtEmail" id="txtEmail" />
+          </td>
+        </tr>
+      </table>
       <p>&nbsp;</p>
       <p>&nbsp;</p>
-      <p>
-        <input type="submit" name="btnSubmit" id="btnSubmit" value="Register" />
-      </p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
       <p>&nbsp;</p>
       <p>&nbsp;</p>
     </fieldset></td>
-    <td width="680"><fieldset>
+    <td width="723"><fieldset>
       <legend>Kỹ Năng Chuyên Môn</legend>
       <p>&nbsp; </p>
       <fieldset>
         <legend>Thiết Kế Web</legend>
-        <div id="skill1">
-          <table width="400" border="1">
+        <div id="skill1" style="margin: 3px; padding: 3px; float: left;">
+          <table width="400" border="0">
             <tr>
-              <td width="168"><div align="right">Kỹ Năng CorelDraw, Photoshop</div></td>
-              <td width="48"><table width="219" border="0">
+              <td width="167"><div align="right">Kỹ Năng CorelDraw, Photoshop</div></td>
+              <td width="223"><table width="219" border="0">
                 <tr>
                   <td width="50"><label>
-                    <input name="PhotoshopSkill" type="radio" id="PhotoshopSkill_0" value="1" checked="checked" />
+                    <input name="PhotoshopSkill" type="radio" value="1" checked="checked" />
                     1</label></td>
                   <td width="51"><label>
-                    <input type="radio" name="PhotoshopSkill" value="2" id="PhotoshopSkill_1" />
+                    <input type="radio" name="PhotoshopSkill" value="2"/>
                     2</label></td>
                   <td width="52"><label>
-                    <input type="radio" name="PhotoshopSkill" value="3" id="PhotoshopSkill_2" />
+                    <input type="radio" name="PhotoshopSkill" value="3"/>
                     3</label></td>
                   <td width="48"><label>
-                    <input type="radio" name="PhotoshopSkill" value="4" id="PhotoshopSkill_3" />
+                    <input type="radio" name="PhotoshopSkill" value="4"/>
                     4</label></td>
                 </tr>
               </table>
                 <p></p></td>
             </tr>
             <tr>
-              <td><div align="right">HTML/CSS</div></td>
+              <td><div align="right">HTML/CSS:</div></td>
               <td><table width="218" border="0">
                 <tr>
-                  <td width="50"><label>
+                  <td width="45"><label>
                     <input name="HTMLSkill" type="radio" id="HTMLSkill" value="1" checked="checked" />
                     1</label></td>
-                  <td width="50"><label>
-                    <input type="radio" name="HTMLSkill" value="2" id="PhotoshopSkill_5" />
+                  <td width="55"><label>
+                    <input type="radio" name="HTMLSkill" value="2"/>
                     2</label></td>
                   <td width="52"><label>
-                    <input type="radio" name="HTMLSkill" value="3" id="PhotoshopSkill_6" />
+                    <input type="radio" name="HTMLSkill" value="3"/>
                     3</label></td>
                   <td width="48"><label>
-                    <input type="radio" name="HTMLSkill" value="4" id="PhotoshopSkill_7" />
+                    <input type="radio" name="HTMLSkill" value="4"/>
                     4</label></td>
                 </tr>
               </table></td>
             </tr>
             <tr>
-              <td><div align="right">JavaScript</div></td>
+              <td><div align="right">JavaScript:</div></td>
               <td><table width="218" border="0">
                 <tr>
                   <td><label>
-                    <input name="JVScriptSkill" type="radio" id="PhotoshopSkill_8" value="1" checked="checked" />
+                    <input name="JVScriptSkill" type="radio" value="1" checked="checked" />
                     1</label></td>
                   <td><label>
-                    <input type="radio" name="JVScriptSkill" value="2" id="PhotoshopSkill_9" />
+                    <input type="radio" name="JVScriptSkill" value="2"/>
                     2</label></td>
                   <td><label>
-                    <input type="radio" name="JVScriptSkill" value="3" id="PhotoshopSkill_10" />
+                    <input type="radio" name="JVScriptSkill" value="3"/>
                     3</label></td>
                   <td><label>
-                    <input type="radio" name="JVScriptSkill" value="4" id="PhotoshopSkill_11" />
+                    <input type="radio" name="JVScriptSkill" value="4"/>
                     4</label></td>
                 </tr>
               </table></td>
             </tr>
             <tr>
-              <td><div align="right">Flash, Sliverlight, Air</div></td>
+              <td><div align="right">Flash, Sliverlight, Air:</div></td>
               <td><table width="217" border="0">
                 <tr>
                   <td width="48"><label>
-                    <input name="FlashSkill" type="radio" id="PhotoshopSkill_12" value="1" checked="checked" />
+                    <input name="FlashSkill" type="radio" value="1" checked="checked" />
                     1</label></td>
                   <td width="51"><label>
-                    <input type="radio" name="FlashSkill" value="2" id="PhotoshopSkill_13" />
+                    <input type="radio" name="FlashSkill" value="2" />
                     2</label></td>
                   <td width="52"><label>
-                    <input type="radio" name="FlashSkill" value="3" id="PhotoshopSkill_14" />
+                    <input type="radio" name="FlashSkill" value="3" />
                     3</label></td>
                   <td width="48"><label>
-                    <input type="radio" name="FlashSkill" value="4" id="PhotoshopSkill_15" />
+                    <input type="radio" name="FlashSkill" value="4" />
                     4</label></td>
                 </tr>
               </table></td>
             </tr>
           </table>
         </div>
-        <div id="note1">
+        <div id="note1" style="	margin: 3px; padding: 3px;	float: left;">
           <ul>
             <li>1: Chưa biết</li>
             <li>2: Căn bản</li>
@@ -218,80 +214,80 @@
         <p>&nbsp;</p>
       </fieldset>
     <fieldset><legend>Lập Trình Web</legend>
-      <div id="skill2">
-        <table width="400" border="1">
+      <div id="skill2" style="text-align: center; margin: 3px; padding: 3px; float: left;">
+        <table width="400" border="0">
           <tr>
-            <td width="165"><div align="right">PHP</div></td>
+            <td width="165"><div align="right">PHP:</div></td>
             <td width="219"><table width="219" border="0">
               <tr>
                 <td width="50"><label>
-                  <input name="PHPSkill" type="radio" id="PhotoshopSkill_4" value="1" checked="checked" />
+                  <input name="PHPSkill" type="radio" value="1" checked="checked" />
                   1</label></td>
                 <td width="51"><label>
-                  <input type="radio" name="PHPSkill" value="2" id="PhotoshopSkill_16" />
+                  <input type="radio" name="PHPSkill" value="2" />
                   2</label></td>
                 <td width="52"><label>
-                  <input type="radio" name="PHPSkill" value="3" id="PhotoshopSkill_17" />
+                  <input type="radio" name="PHPSkill" value="3" />
                   3</label></td>
                 <td width="48"><label>
-                  <input type="radio" name="PHPSkill" value="4" id="PhotoshopSkill_18" />
+                  <input type="radio" name="PHPSkill" value="4" />
                   4</label></td>
               </tr>
             </table></td>
           </tr>
           <tr>
-            <td><div align="right">ASP.NET</div></td>
+            <td><div align="right">ASP.NET:</div></td>
             <td><table width="219" border="0">
               <tr>
                 <td width="50"><label>
-                  <input name="ASPSkill" type="radio" id="PhotoshopSkill_19" value="1" checked="checked" />
+                  <input name="ASPSkill" type="radio" value="1" checked="checked" />
                   1</label></td>
                 <td width="51"><label>
-                  <input type="radio" name="ASPSkill" value="2" id="PhotoshopSkill_20" />
+                  <input type="radio" name="ASPSkill" value="2" />
                   2</label></td>
                 <td width="52"><label>
-                  <input type="radio" name="ASPSkill" value="3" id="PhotoshopSkill_21" />
+                  <input type="radio" name="ASPSkill" value="3" />
                   3</label></td>
                 <td width="48"><label>
-                  <input type="radio" name="ASPSkill" value="4" id="PhotoshopSkill_22" />
+                  <input type="radio" name="ASPSkill" value="4" />
                   4</label></td>
               </tr>
             </table></td>
           </tr>
           <tr>
-            <td><div align="right">JSP</div></td>
+            <td><div align="right">JSP:</div></td>
             <td><table width="219" border="0">
               <tr>
                 <td width="50"><label>
-                  <input name="JSPSkill" type="radio" id="PhotoshopSkill_23" value="1" checked="checked" />
+                  <input name="JSPSkill" type="radio" value="1" checked="checked" />
                   1</label></td>
                 <td width="51"><label>
-                  <input type="radio" name="JSPSkill" value="2" id="PhotoshopSkill_24" />
+                  <input type="radio" name="JSPSkill" value="2" />
                   2</label></td>
                 <td width="52"><label>
-                  <input type="radio" name="JSPSkill" value="3" id="PhotoshopSkill_25" />
+                  <input type="radio" name="JSPSkill" value="3" />
                   3</label></td>
                 <td width="48"><label>
-                  <input type="radio" name="JSPSkill" value="radio" id="PhotoshopSkill_26" />
+                  <input type="radio" name="JSPSkill" value="radio" />
                   4</label></td>
               </tr>
             </table></td>
           </tr>
           <tr>
-            <td><div align="right">Google Apps Engine</div></td>
+            <td><div align="right">Google Apps Engine:</div></td>
             <td><table width="219" border="0">
               <tr>
                 <td width="50"><label>
-                  <input name="GAESkill" type="radio" id="PhotoshopSkill_27" value="1" checked="checked" />
+                  <input name="GAESkill" type="radio" value="1" checked="checked" />
                   1</label></td>
                 <td width="51"><label>
-                  <input type="radio" name="GAESkill" value="2" id="PhotoshopSkill_28" />
+                  <input type="radio" name="GAESkill" value="2"/>
                   2</label></td>
                 <td width="52"><label>
-                  <input type="radio" name="GAESkill" value="3" id="PhotoshopSkill_29" />
+                  <input type="radio" name="GAESkill" value="3"/>
                   3</label></td>
                 <td width="48"><label>
-                  <input type="radio" name="GAESkill" value="4" id="PhotoshopSkill_30" />
+                  <input type="radio" name="GAESkill" value="4"/>
                   4</label></td>
               </tr>
             </table></td>
@@ -301,42 +297,42 @@
             <td><table width="219" border="0">
               <tr>
                 <td width="50"><label>
-                  <input name="MySQLSkill" type="radio" id="PhotoshopSkill_31" value="1" checked="checked" />
+                  <input name="MySQLSkill" type="radio" value="1" checked="checked" />
                   1</label></td>
                 <td width="51"><label>
-                  <input type="radio" name="MySQLSkill" value="2" id="PhotoshopSkill_32" />
+                  <input type="radio" name="MySQLSkill" value="2"/>
                   2</label></td>
                 <td width="52"><label>
-                  <input type="radio" name="MySQLSkill" value="3" id="PhotoshopSkill_33" />
+                  <input type="radio" name="MySQLSkill" value="3"/>
                   3</label></td>
                 <td width="48"><label>
-                  <input type="radio" name="MySQLSkill" value="4" id="PhotoshopSkill_34" />
+                  <input type="radio" name="MySQLSkill" value="4"/>
                   4</label></td>
               </tr>
             </table></td>
           </tr>
           <tr>
-            <td><div align="right">MS SQL Server</div></td>
+            <td><div align="right">MS SQL Server:</div></td>
             <td><table width="219" border="0">
               <tr>
                 <td width="50"><label>
-                  <input name="MSSQLSkill" type="radio" id="PhotoshopSkill_35" value="1" checked="checked" />
+                  <input name="MSSQLSkill" type="radio" value="1" checked="checked" />
                   1</label></td>
                 <td width="51"><label>
-                  <input type="radio" name="MSSQLSkill" value="2" id="PhotoshopSkill_36" />
+                  <input type="radio" name="MSSQLSkill" value="2" />
                   2</label></td>
                 <td width="52"><label>
-                  <input type="radio" name="MSSQLSkill" value="3" id="PhotoshopSkill_37" />
+                  <input type="radio" name="MSSQLSkill" value="3" />
                   3</label></td>
                 <td width="48"><label>
-                  <input type="radio" name="MSSQLSkill" value="4" id="PhotoshopSkill_38" />
+                  <input type="radio" name="MSSQLSkill" value="4" />
                   4</label></td>
               </tr>
             </table></td>
           </tr>
         </table>
       </div>
-      <div id="note2">
+      <div id="note2" style="	margin: 3px;	padding: 3px;	float: left;">
         <ul>
           <li>1: Chưa biết</li>
           <li>2: Căn bản</li>
@@ -346,6 +342,11 @@
       </div>
     </fieldset>  
     </fieldset></td>
+  </tr>
+  <tr>
+    <td><div align="center">
+      <input type="submit" name="btnSubmit" id="btnSubmit" value="Register" />
+    </div></td>
   </tr>
 </table>
 </form>
