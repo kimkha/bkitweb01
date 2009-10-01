@@ -33,30 +33,30 @@
 <body>
 <div id="apDiv1"></div>
 <form action="Confirm.php" method="post" name="frmMain">
-<table width="1139" border="0">
+<table width="803" border="0">
   <tr>
-    <td width="406" height="389" rowspan="2"><fieldset>
+    <td width="284" height="389" rowspan="2"><fieldset>
       <legend>Thông Tin Cá Nhân</legend>
       <p>
         <label><strong>Nguyện Vọng</strong></label>
       <p>
-        <textarea name="txtExpectation" id="txtExpectation" cols="55" rows="5"></textarea>
+        <textarea name="txtExpectation" id="txtExpectation" cols="35" rows="5"></textarea>
       </p>
       <p><strong>Sở Thích:</strong></p>
       <p>
-        <textarea name="txtHobby" id="txtHobby" cols="55" rows="5"></textarea>
+        <textarea name="txtHobby" id="txtHobby" cols="35" rows="5"></textarea>
       </p> 
-      <table width="400" border="0" align="left">
+      <table width="275" border="0" align="left">
         <tr>
-          <td nowrap="nowrap"><div align="right">Họ tên</div></td>
-          <td width="243">
-            <input name="txtName" type="text" id="txtName" size="20" />
+          <td width="103" nowrap="nowrap"><div align="right">Họ tên</div></td>
+          <td width="162">
+            <input name="txtName" type="text" id="txtName" size="23" />
           </td>
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Ngày Sinh:</div></td>
           <td>
-            <input type="text" name="txtBirthday" id="txtBirthday" />
+            <input name="txtBirthday" type="text" id="txtBirthday" size="23" />
           </td>
         </tr>
         <tr>
@@ -87,25 +87,25 @@
         <tr>
           <td nowrap="nowrap"><div align="right">Địa Chỉ Liên Lạc</div></td>
           <td>
-            <input type="text" name="txtAddress" id="txtAddress" />
+            <input name="txtAddress" type="text" id="txtAddress" size="23" />
           </td>
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Số Điện Thoại</div></td>
           <td>
-          <input type="text" name="txtPhone" id="txtPhone" />
+          <input name="txtPhone" type="text" id="txtPhone" size="23" />
           </td>
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">YahooID</div></td>
           <td>
-            <input type="text" name="txtYahoo" id="txtYahoo" />
+            <input name="txtYahoo" type="text" id="txtYahoo" size="23" />
           </td>
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Email:</div></td>
           <td>
-            <input type="text" name="txtEmail" id="txtEmail" />
+            <input name="txtEmail" type="text" id="txtEmail" size="23" />
           </td>
         </tr>
       </table>
@@ -115,18 +115,22 @@
       <p>&nbsp;</p>
       <p>&nbsp;</p>
       <p>&nbsp;</p>
-      <p>&nbsp;</p>
     </fieldset></td>
-    <td width="723"><fieldset>
+    <td width="509"><fieldset>
       <legend>Kỹ Năng Chuyên Môn</legend>
-      <p>&nbsp; </p>
+      <ul>
+        <li>1: Chưa biết</li>
+        <li>2: Căn bản</li>
+        <li>3: Khá </li>
+        <li>4: Tốt </li>
+      </ul>
       <fieldset>
         <legend>Thiết Kế Web</legend>
         <div id="skill1" style="margin: 3px; padding: 3px; float: left;">
           <table width="400" border="0">
             <tr>
-              <td width="167"><div align="right">Kỹ Năng CorelDraw, Photoshop</div></td>
-              <td width="223"><table width="219" border="0">
+              <td width="169"><div align="right">Kỹ Năng CorelDraw, PTS</div></td>
+              <td><table width="219" border="0">
                 <tr>
                   <td width="50"><label>
                     <input name="PhotoshopSkill" type="radio" value="1" checked="checked" />
@@ -141,17 +145,16 @@
                     <input type="radio" name="PhotoshopSkill" value="4"/>
                     4</label></td>
                 </tr>
-              </table>
-                <p></p></td>
+              </table></td>
             </tr>
             <tr>
               <td><div align="right">HTML/CSS:</div></td>
-              <td><table width="218" border="0">
+              <td><table width="219" border="0">
                 <tr>
-                  <td width="45"><label>
+                  <td width="50"><label>
                     <input name="HTMLSkill" type="radio" id="HTMLSkill" value="1" checked="checked" />
                     1</label></td>
-                  <td width="55"><label>
+                  <td width="51"><label>
                     <input type="radio" name="HTMLSkill" value="2"/>
                     2</label></td>
                   <td width="52"><label>
@@ -165,18 +168,18 @@
             </tr>
             <tr>
               <td><div align="right">JavaScript:</div></td>
-              <td><table width="218" border="0">
+              <td><table width="219" border="0">
                 <tr>
-                  <td><label>
+                  <td width="50"><label>
                     <input name="JVScriptSkill" type="radio" value="1" checked="checked" />
                     1</label></td>
-                  <td><label>
+                  <td width="51"><label>
                     <input type="radio" name="JVScriptSkill" value="2"/>
                     2</label></td>
-                  <td><label>
+                  <td width="52"><label>
                     <input type="radio" name="JVScriptSkill" value="3"/>
                     3</label></td>
-                  <td><label>
+                  <td width="48"><label>
                     <input type="radio" name="JVScriptSkill" value="4"/>
                     4</label></td>
                 </tr>
@@ -184,9 +187,9 @@
             </tr>
             <tr>
               <td><div align="right">Flash, Sliverlight, Air:</div></td>
-              <td><table width="217" border="0">
+              <td><table width="219" border="0">
                 <tr>
-                  <td width="48"><label>
+                  <td width="50"><label>
                     <input name="FlashSkill" type="radio" value="1" checked="checked" />
                     1</label></td>
                   <td width="51"><label>
@@ -203,21 +206,13 @@
             </tr>
           </table>
         </div>
-        <div id="note1" style="	margin: 3px; padding: 3px;	float: left;">
-          <ul>
-            <li>1: Chưa biết</li>
-            <li>2: Căn bản</li>
-            <li>3: Khá </li>
-            <li>4: Tốt</li>
-          </ul>
-          </div>
-        <p>&nbsp;</p>
+ 
       </fieldset>
     <fieldset><legend>Lập Trình Web</legend>
       <div id="skill2" style="text-align: center; margin: 3px; padding: 3px; float: left;">
-        <table width="400" border="0">
+        <table width="400" border="0" cellspacing="0">
           <tr>
-            <td width="165"><div align="right">PHP:</div></td>
+            <td width="169"><div align="right">PHP:</div></td>
             <td width="219"><table width="219" border="0">
               <tr>
                 <td width="50"><label>
@@ -277,7 +272,7 @@
             <td><div align="right">Google Apps Engine:</div></td>
             <td><table width="219" border="0">
               <tr>
-                <td width="50"><label>
+                <td width="50" height="24"><label>
                   <input name="GAESkill" type="radio" value="1" checked="checked" />
                   1</label></td>
                 <td width="51"><label>
@@ -293,7 +288,7 @@
             </table></td>
           </tr>
           <tr>
-            <td><div align="right">MySQL</div></td>
+            <td><div align="right">MySQL:</div></td>
             <td><table width="219" border="0">
               <tr>
                 <td width="50"><label>
@@ -312,7 +307,7 @@
             </table></td>
           </tr>
           <tr>
-            <td><div align="right">MS SQL Server:</div></td>
+            <td height="30"><div align="right">MS SQL Server:</div></td>
             <td><table width="219" border="0">
               <tr>
                 <td width="50"><label>
@@ -332,19 +327,14 @@
           </tr>
         </table>
       </div>
-      <div id="note2" style="	margin: 3px;	padding: 3px;	float: left;">
-        <ul>
-          <li>1: Chưa biết</li>
-          <li>2: Căn bản</li>
-          <li>3: Khá </li>
-          <li>4: Tốt</li>
-        </ul>
-      </div>
     </fieldset>  
     </fieldset></td>
   </tr>
   <tr>
     <td><div align="center">
+      <label>
+        <input type="reset" value="Reset" />
+      </label> 
       <input type="submit" name="btnSubmit" id="btnSubmit" value="Register" />
     </div></td>
   </tr>
