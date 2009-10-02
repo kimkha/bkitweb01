@@ -1,0 +1,20 @@
+Lúc đầu tính gộp 4 file form thành 1 file duy nhất, nếu NULL thì hiện form input, còn lại hiện object, nhưng thấy nếu làm thế khá rồi nên tách 4 file cho dễ làm
+
+
+Thư mục view
+	event.php
+	user.php
+	form/
+		Confirm.php : Xác nhận sau khi đăng kí thông tin
+		DisplayProfileInfor.php : Xem thông tin user và chỉnh level, status
+		Profile.php : Xem thông tin user
+		Register.php : Đăng kí
+Để view file, sử dụng hàm view($tenfile, $vars = array())
+gồm $vars['object'] : đối tượng truyền vào, có thể là event, user
+    $vars['viewtype'] : kiểu view
+
+Đối với 3 file: Confirm.php, DisplayProfileInfor.php, Profile.php : object truyền vào bt
+Register.php : Object truyền vào phải là NULL
+
+Cả 4 viewtype truyền vào phải là 'normal' để xuất bình thường
+	
