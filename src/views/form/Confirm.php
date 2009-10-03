@@ -180,6 +180,7 @@
   </table>
 </form>
 EOT;
+    }
 	else
 		$html = '';
 	return $html;
