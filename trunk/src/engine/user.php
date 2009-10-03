@@ -320,23 +320,23 @@ class BKITUser
             setcookie('user_password');
         }
     }
-    start_connection();
-    $t = get_user(2);
-    $a = new BKITUser();
-    $a->set('uid',1);
-    $a->delete();
-    $t1 = new BKITUserSkill();
-    $t1->key = 9;
-    $t1->value['level'] = 1;
-    
-    $t2 = new BKITUserSkill(); 
-    $t2->key = 10;
-    $t2->value['level'] = 2;
-    $as =  $t[0]->get('skills');
-    array_push($as, $t1);
-    array_push($as, $t2);
-    $t[0]->set('skills', $as);
-    $t[0]->save();
+//    start_connection();
+//    $t = get_user(2);
+//    $a = new BKITUser();
+//    $a->set('uid',1);
+//    $a->delete();
+//    $t1 = new BKITUserSkill();
+//    $t1->key = 9;
+//    $t1->value['level'] = 1;
+//    
+//    $t2 = new BKITUserSkill(); 
+//    $t2->key = 10;
+//    $t2->value['level'] = 2;
+//    $as =  $t[0]->get('skills');
+//    array_push($as, $t1);
+//    array_push($as, $t2);
+//    $t[0]->set('skills', $as);
+//    $t[0]->save();
     //login('kyo.cooro@gmail.com','8768f1ff177d8341bcc40a7210af50e9');
 //    $result = get_; //'kyo.cooro@gmail.com','8768f1ff177d8341bcc40a7210af50e9');
 //    logout();
