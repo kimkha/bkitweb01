@@ -100,7 +100,7 @@
       }
       return $bkit_object_array;
   }
-  start_connection();
-  $old_Event=get_data("SELECT name,title,headline,content,image FROM event WHERE eid='{eid}'","event");
-  echo $old_Event->get('name');
+  //start_connection();
+//  $old_Event=get_data("SELECT name,title,headline,content,image FROM event WHERE eid='{eid}'","event");
+//  echo $old_Event->get('name');
 ?>
