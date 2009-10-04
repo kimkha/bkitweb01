@@ -28,7 +28,7 @@
             die('Can not connect to database. Error code:' . mysql_error());
         }
         
-      $DB['selected'] = mysql_select_db($DB['Info'][database_name], $DB['resource']);  //select bkitweb database
+      $DB['selected'] = mysql_select_db($DB['Info']['database_name'], $DB['resource']);  //select bkitweb database
       
       //else
       //   return $DB;
