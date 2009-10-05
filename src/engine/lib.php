@@ -37,11 +37,11 @@ function shutdown(){
 function view($viewname, $vars = array()){
 	global $CONFIG;
 	
-	$file = "views/".$viewname.".php";
+	$file = "views/".$viewname;
 	
 	$value = "";
-	if(is_file($viewname))
-		$value = include( dirname(__FILE__) . $file);
+	if(is_file($file))
+		$value = include($file);
 	
 	if (isset($CONFIG['extend'][$viewname]) && is_array($CONFIG['extend'][$viewname]) && count($CONFIG['extend'][$viewname]) >0 ) {
 		foreach ($CONFIG['extend'][$viewname] as $key => $view) {
