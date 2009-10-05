@@ -157,12 +157,12 @@ class BKITUser
         if ($max_time_created != 0 && is_int($max_time_created) )
             $query = $query."AND time_created <= $max_time_created ";
             
-        $query = $query."ORDER BY ".mysql_real_escape_string($order_by);
+        $query = $query." ORDER BY ".mysql_real_escape_string($order_by);
         
         if (is_int($limit) && is_int($offset))
             $query = $query." LIMIT $offset, $limit ";
         $result = get_data($query,'user');
-        
+        return $result;
         
     }
     function __user__is_valid_email($email)
