@@ -49,7 +49,7 @@ EOT;
 						
 					
 			<p class="postmeta">						
-			<span class="date">$time</span>	
+			<span class="date">Viết vào lúc $time</span>	
 			</p>
 			</div>			
 EOT;
