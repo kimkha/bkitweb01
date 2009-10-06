@@ -73,11 +73,14 @@ class BKITUser
                                                            . var_export($this->status, true) . ", "
                                                            . var_export($this->time_created, true) . ", "
                                                            . var_export($this->time_updated, true) . "); ";
+               $result = db_query($query);
+               $this->uid = mysql_insert_id($DB['resource']);
                foreach ($this->skills as $key => $value)
                {
-                    $query = $query."INSERT INTO user_skill VALUES (" .   var_export($this->uid, true) . ", " 
+                    $query = "INSERT INTO user_skill VALUES (" .   var_export($this->uid, true) . ", " 
                                                                        .   var_export($value->key, true) . ", "     
                                                                        .   var_export($value->value['level'], true) . ");";
+                   
                     $result = $result & db_query($query);
                } 
                  
