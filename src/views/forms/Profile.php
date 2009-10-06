@@ -1,13 +1,13 @@
 <?php
-		foreach($obj->_vinh_convertArray() as $key => $value)
-			$$key = $value;
 
+	$obj = $vars['object'];
+	$type = $vars['viewtype'];
 
+	if($type == 'normal'){
 		$nameLevel = array('Chưa biết', 'Căn bản', 'Khá', 'Tốt');
 		$exLevel = array();
 		for($i = 0; $i <= 10; $i++)
 			$exLevel[$i] = $nameLevel[$obj->get('skills['.$i.']')];
-
 		$html = <<<EOT
 <form action="Confirm.php" method="post" name="frmMain">
 <table width="707" border="0">
@@ -16,56 +16,56 @@
       <legend>Thông Tin Cá Nhân</legend>
       <p>
         <label><strong>Nguyện Vọng</strong></label>
-        <p>$expectation</p>
+        <p>$obj->get('expectation')</p>
       <p><strong>Sở Thích:</strong></p>
-      <p>$hobby</p> 
+      <p>$obj->get('hobby')</p> 
       <table width="275" border="1" align="left">
         <tr>
           <td width="103" nowrap="nowrap"><div align="right">Họ tên</div></td>
           <td width="162">
-            $name
+            $obj->get('firstname') $obj->get('lastname')
             </td>
           </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Ngày Sinh:</div></td>
           <td>
-            $birthday
+            $obj->get('birthday')
             </td>
           </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Giới Tính:</div></td>
           <td>
-            $sex
+            $obj->get('sex')
             </td>
           </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Sinh Viên Khóa:</div></td>
           <td>
-            $courseyear
+            $obj->get('courseyear')
             </td>
           </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Địa Chỉ Liên Lạc</div></td>
           <td>
-            $address
+            $obj->get('address')
             </td>
           </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Số Điện Thoại</div></td>
           <td>
-            $phone
+            $obj->get('phone')
             </td>
           </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">YahooID</div></td>
           <td>
-            $yahooid
+            $obj->get('yahooid')
             </td>
           </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Email:</div></td>
           <td>
-            $email
+            $obj->get('email')
             </td>
           </tr>
         </table>
@@ -178,8 +178,9 @@
     </tr>
   </table>
 EOT;
-
-
+	}
+	else
+		$html = '';
 	return $html;
 
 ?>
