@@ -1,9 +1,6 @@
 <?php
 
-	$obj = $vars['object'];
-	$type = $vars['viewtype'];
-
-	if($type == 'normal' || $obj == NULL)
+	if($type == 'normal')
 		$html = <<<EOT
 <form action="Confirm.php" method="post" name="frmMain">
 <table width="778" border="0">
