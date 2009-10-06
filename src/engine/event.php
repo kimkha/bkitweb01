@@ -110,7 +110,24 @@ class BKITEvent{
 			return $this->eid;
 		else 
 			return FALSE;
-	}	
+	}
+	
+	/**
+	 * Convert Object to Arrray()
+	 * @param nothing
+	 * @return array of object
+	 */
+	 function _vinh_convertArray(){
+	 	$output = array();
+	 	$output['eid']			= $this->eid;
+	 	$output['name'] 		= $this->name;
+	 	$output['title']		= $this->title;
+	 	$output['headline']		= $this->headline;
+	 	$output['content']		= $this->content;
+	 	$output['image']		= $CONFIG['root']."images/thumb/".$this->image_name;
+	 	$output['time_updated']	= $this->time_updated;
+		return $output;
+	 }
 }
 
 /**

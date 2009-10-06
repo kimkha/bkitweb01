@@ -133,6 +133,29 @@ class BKITUser
                 return $this->uid;
             else return FALSE;
         }
+        
+        
+		/**
+		 * Convert Object User to Arrray()
+		 * @param nothing
+		 * @return array of object
+		 */
+		 function _vinh_convertArray(){
+		 	$output = array();
+		 	$output['uid']			= $this->uid;
+		 	$output['name'] 		= $this->firstname." ".$this->lastname;
+		 	$output['birthday']		= $this->birthday;
+		 	$output['sex']			= $this->sex;
+			$output['courseyear']	= $this->courseyear;
+			$output['address']		= $this->address;
+			$output['phone']		= $this->phone;
+			$output['yahooid']		= $this->yahooid;
+			$output['email']		= $this->email;
+			$output['time']			= $this->time_updated;
+			$output['expectation']  = $this->expectation;
+			$output['hobby']		= $this->hobby;
+			return $output;
+		 }
 }
     
     
