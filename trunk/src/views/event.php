@@ -31,12 +31,12 @@
 			
 			<div class="text-block">
 			
-				<h2><a href="event.php?id=$eid"><B>[$name]</B> $title </a></h2>
+				<h2><a href="viewevent.php?id=$eid"><B>[$name]</B> $title </a></h2>
 			
 				<p class="post-info">Posted by <a href="index.php">hungvinh</a> | Viết lúc $time</a></p>
 				
 				<p>$headline</p>
-				<p><a href="event.php?id=$eid" >Read More</a></p>
+				<p><a href="viewevent.php?id=$eid" >Read More</a></p>
 								
 			</div>								
 		</div>	
@@ -49,12 +49,12 @@ EOT;
 			
 			<div class="content-block">
 			
-				<h2><a href="event.php?id=$eid"><B>[$name]</B> $title </a></h2>
+				<h2><a href="viewevent.php?id=$eid"><B>[$name]</B> $title </a></h2>
 			
 				<p class="post-info">Posted by <a href="index.php">hungvinh</a> | Viết lúc $time</a></p>
 				
 				<p>$content</p>
-				<p><a href="event.php?id=$eid" >Read More</a></p>
+				
 								
 			</div>								
 		</div>				
@@ -62,7 +62,7 @@ EOT;
 			break;	
 		case 'title':
 			$output= <<<EOT
-			<li><a href="event.php?id=$eid"><B>[$eid]</B> $title</a></li>
+			<li><a href="viewevent.php?id=$eid"><B>[$eid]</B> $title</a></li>
 EOT;
 			break;
  	
