@@ -27,9 +27,12 @@ function view_theme($viewname, $vars = array()){
 	
 	$file = "themes/".$CONFIG['theme']."/".$viewname.".php";
 	
+	//$path = str_replace("\\","/",dirname(__FILE__)) ."/";
+	$path = "";
+
 	$value = "";
 	if(is_file($file))
-		$value .= include( dirname(__FILE__) . $file);
+		$value .= include($path. $file);
 	
 	return $value;
 }

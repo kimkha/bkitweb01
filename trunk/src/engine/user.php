@@ -1,7 +1,8 @@
 <?php
 include_once('db.php');
 //include_once('start.php');
-error_reporting(0);
+//error_reporting(0);
+// test cái đã
 class BKITUserSkill
 {
     public $key;
