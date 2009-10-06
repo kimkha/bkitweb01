@@ -15,8 +15,18 @@
 	$example_meta = '<meta name="description" content="Site Description Here" />';
 	extend('metatags', $example_meta);
 	
-	$body = "This is the first page -               vinh";
+	$body = "";
+
+	$event = new BKITEvent();
+
+	$event->set('eid','1');
+	$event->set('title','Title');
+	$event->set('name','NAME');
+	$event->set('headline','This is a headline!');
+	$event->set('time_updated','01011990');
 	
+	$body = view("event",array('object'=>$event,'viewtype'=>'full'));
+
 	// Draw the page and view it.
 	page_draw('Homepage', $body);
 	
