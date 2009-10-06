@@ -1,15 +1,15 @@
 <?php
 class BKITEvent{
 	
-	private $eid;
-	private $name;
-	private $title;
-	private $headline;//HTML of headline
-	private $content;//HTML of full content
-	private $image;//Full URL of image (this attributes is not inserted to database)
-	private $image_name ;//filename of image. Image upload to ./upload/images/ folder
-	private $time_created;
-	private $time_updated;
+	private $eid = '';
+	private $name = '';
+	private $title = '';
+	private $headline = '';//HTML of headline
+	private $content = '';//HTML of full content
+	private $image = '';//Full URL of image (this attributes is not inserted to database)
+	private $image_name = '';//filename of image. Image upload to ./upload/images/ folder
+	private $time_created = '';
+	private $time_updated = '';
 
 
 	/**
