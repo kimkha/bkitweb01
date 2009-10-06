@@ -11,6 +11,10 @@ class BKITEvent{
 	private $time_created = '';
 	private $time_updated = '';
 
+	function getThumb(){
+		global $CONFIG;
+		return $CONFIG['root']."images/thumb/".$this->image_name;
+	}
 
 	/**
 	 * Get value of attribute has $name

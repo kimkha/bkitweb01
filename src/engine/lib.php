@@ -39,7 +39,7 @@ function view($viewname, $vars = array()){
 	
 	$file = "views/".$viewname.".php";
 	
-	$value = "Lỗi";
+	$value = "";
 	if(is_file($file))
 		$value = include($file);
 	

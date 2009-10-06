@@ -268,14 +268,13 @@ input.button {
 	clear: both;
 	background: #F8FAFD; 
 	border: 1px solid #DCF1FB;
-	margin: 3px 0 15px 10px;
-	padding-bottom: 20px;
-	width: 900px;			
+	margin: 3px 0 15px 0px;
+	padding-bottom: 2px;
+	width: 700px;			
 }
 #featured h2 {
 	font: normal 3.8em Arial,Georgia, 'Times New Roman', Times, Serif;
 	color: #295177;
-	letter-spacing: -2.0px;	
 	margin-bottom: 0;
 	padding-bottom: 3px;
 	border-bottom: 1px solid #EBEBEB;	
@@ -286,21 +285,28 @@ input.button {
 }
 #featured .image-block {
 	float: left;
-	width: 330px;	
-	margin: 20px 0 0 25px;
-	padding: 10px 0 0 0;
+	width: 120px;	
+	margin: 10px 0 10 15px;
+	padding: 5px 0 0 0;
 	display: inline;
 	border-right: 1px solid #DCF1FB;	
 }
 #featured .image-block img {
 	background: #FFF;
-   border: 1px solid #DFEAF0;
-	padding: 12px;
+    border: 1px solid #DFEAF0;
+	padding: 5px;
 }
 #featured .text-block {
 	float: right;
-	width: 510px;
-	margin: 15px 25px 0 0;
+	width: 540px;
+	margin: 5px 5px 0 0;
+	display: inline;
+}
+
+#featured .content-block {
+	float: right;
+	width: 700px;
+	margin: 5px 5px 0 0;
 	display: inline;
 }
 #featured a.more-link {
@@ -348,7 +354,6 @@ input.button {
 	width: 705px;	/*580*/
 	float: left;	
 	padding-top: 15px;	
-	/*border:#F00 dashed 1px;*/
 }
 #right {/*285*/
 	width: 240px;
@@ -681,6 +686,15 @@ p.thumbs {
 	clear:both; 
 	height:0; 
 	content: "."; 
+}
+
+.thumb {
+	margin:0px;
+	
+}
+
+.entry1{
+	height: 120px;
 }
 
 
