@@ -37,9 +37,9 @@ function shutdown(){
 function view($viewname, $vars = array()){
 	global $CONFIG;
 	
-	$file = "views/".$viewname;
+	$file = "views/".$viewname.".php";
 	
-	$value = "";
+	$value = "Lỗi";
 	if(is_file($file))
 		$value = include($file);
 	
