@@ -1,5 +1,4 @@
 <?php
-	$sidebar = $vars['sidebar'];
 
 	$html = <<<EOT
 		<div id="right">
@@ -11,7 +10,6 @@
 					<li><a href="#">Register</a></li>
 				</ul>	
 			</div>
-			$sidebar
 		</div>
 
 	</div>
