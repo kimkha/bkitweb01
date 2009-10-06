@@ -20,9 +20,9 @@
 	$event = new BKITEvent();
 
 	$event->set('eid','1');
-	$event->set('title','Title');
-	$event->set('name','NAME');
-	$event->set('headline','This is a headline!');
+	$event->set('title','Tiêu đề');
+	$event->set('name','Tên Sự kiện');
+	$event->set('headline','Đây là một nội dung mẫu!');
 	$event->set('time_updated','01011990');
 	
 	$body = view("event",array('object'=>$event,'viewtype'=>'full'));
