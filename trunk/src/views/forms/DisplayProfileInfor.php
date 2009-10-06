@@ -1,9 +1,11 @@
 <?php
-		foreach($obj->_vinh_convertArray() as $key => $value)
-		$$key = $value;
 
+	$obj = $vars['object'];
+	$type = $vars['viewtype'];
+
+	if($type == 'normal')
 		$html = <<<EOT
-
+		
 <form action="Confirm.php" method="post" name="frmMain">
 <table width="778" border="0">
   <tr>
@@ -14,41 +16,41 @@
       <p>
         <label><strong>Nguyện Vọng</strong></label>
       </p>
-      <p>$expectation</p>
+      <p>$obj-&gt;get('expectation')</p>
       <p><strong>Sở Thích:</strong></p>
-      <p>$hobby)</p>
+      <p>$obj-&gt;get('hobby')</p>
       <table width="275" border="1" align="left">
         <tr>
           <td width="103" nowrap="nowrap"><div align="right">Họ tên</div></td>
-          <td width="162"> $name </td>
+          <td width="162"> $obj-&gt;get('firstname') $obj-&gt;get('lastname') </td>
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Ngày Sinh:</div></td>
-          <td> $birthday </td>
+          <td> $obj-&gt;get('birthday') </td>
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Giới Tính:</div></td>
-          <td> $sex </td>
+          <td> $obj-&gt;get('sex') </td>
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Sinh Viên Khóa:</div></td>
-          <td> $courseyear </td>
+          <td> $obj-&gt;get('courseyear') </td>
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Địa Chỉ Liên Lạc</div></td>
-          <td> $address </td>
+          <td> $obj-&gt;get('address') </td>
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Số Điện Thoại</div></td>
-          <td> $phone </td>
+          <td> $obj-&gt;get('phone') </td>
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">YahooID</div></td>
-          <td> $yahooid </td>
+          <td> $obj-&gt;get('yahooid') </td>
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Email:</div></td>
-          <td> $email </td>
+          <td> $obj-&gt;get('email') </td>
         </tr>
       </table>
     </fieldset></td>
@@ -292,7 +294,8 @@
 </table>
 </form>
 EOT;
-
+	else
+		$html = '';
 	return $html;
 
 ?>
