@@ -10,6 +10,7 @@
 		<div  id="nav">
 			<ul>
 				<li class="first" id="current"><a href="index.php">Trang chủ</a></li>
+				<li class="first" id="current"><a href="index.php">Create Event</a></li>
 
 			</ul>		
 		</div>	
