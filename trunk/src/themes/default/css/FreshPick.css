@@ -1,5 +1,5 @@
 body {
-	font: 12px/170% 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, Sans-Serif;
+	font: 12px/170% Arial,Tahoma, Geneva, Verdana, Sans-Serif;
 	color: #666666; 	
 	margin: 0; 
 	padding: 0; 
@@ -27,7 +27,7 @@ a:hover.more-link {
 
 /* Headers */
 h1, h2, h3, h4 {
-	font: bold 1em/1.5em Georgia, 'Times New Roman', Times, serif;
+	font: bold 1em/1.5em Arial,Georgia, 'Times New Roman', Times, serif;
 	color: #555;
 	margin: 10px 20px 7px 20px;	 
 }
@@ -73,7 +73,7 @@ code {
   	text-align: left;
   	display: block;
   	overflow: auto;  
-  	font: 500 1em/1.5em 'Lucida Console', 'Courier New', Monospace;
+  	font: 500 1em/1.5em Arial,'Lucida Console', 'Courier New', Monospace;
   	/* white-space: pre; */
   	border: 1px solid #F0F0F0;
 	background: #F8F8F8;  
@@ -91,7 +91,7 @@ blockquote {
 	font-size: 17px;
 	line-height: 1.5em;
 	font-style: italic;
-	font-family: Georgia, 'Times New Roman', Times, Serif;	
+	font-family: Arial,Georgia, 'Times New Roman', Times, Serif;	
 	color: #555;	
 }
 strong {
@@ -171,7 +171,7 @@ input.button {
    LAYOUT
 ------------------------------------------- */ 
 #wrap {
-	width: 920px;
+	width: 970px;
 	margin: 0 auto;
 	text-align: left;	
 }
@@ -186,7 +186,7 @@ input.button {
 #header h1#logo-text a {
 	position: absolute; 
 	margin: 0; padding: 0 5px 0 0;
-	font: bold 62px 'Trebuchet MS', 'Helvetica Neue', Arial, Sans-Serif;  
+	font: bold 62px Arial,'Trebuchet MS', 'Helvetica Neue', Arial, Sans-Serif;  
 	letter-spacing: -5px;
 	color: #1980AF;	
 	text-decoration: none;
@@ -198,7 +198,7 @@ input.button {
 #header p#slogan {
 	position: absolute;
 	margin: 0; padding:  0 5px 0 0;
-	font-family: Georgia, 'Times New Roman', Times, serif;;
+	font-family: Arial,Georgia, 'Times New Roman', Times, serif;;
 	font-weight: bold;
 	font-size: 13px;
 	line-height: 1.8em;
@@ -223,7 +223,7 @@ input.button {
 	position: absolute;
 	left: 0px;	bottom: 20px;		
 	margin: 0; padding: 0 0 0 20px;		
-	width: 900px;		
+	width: 950px;		
 	border-bottom: 1px solid #F2F2F2;	
 	/* z-index: 99999; */
 }
@@ -243,7 +243,7 @@ input.button {
 	margin: 0;
 	padding: 5px 15px 10px 15px;
 	color: #666666;
-	font: bold 14px 'Trebuchet MS', Arial, Sans-Serif;
+	font: bold 14px Arial,'Trebuchet MS', Arial, Sans-Serif;
 	text-transform: uppercase;		
 	border-right: 1px solid #EEE;	
 }
@@ -273,7 +273,7 @@ input.button {
 	width: 900px;			
 }
 #featured h2 {
-	font: normal 3.8em Georgia, 'Times New Roman', Times, Serif;
+	font: normal 3.8em Arial,Georgia, 'Times New Roman', Times, Serif;
 	color: #295177;
 	letter-spacing: -2.0px;	
 	margin-bottom: 0;
@@ -326,18 +326,18 @@ input.button {
 #content-outer {
 	clear: both;
 	float: left;
-	width: 920px;
+	width: 970px;
 	margin: 0; padding: 0;
-	background: transparent url(../images/hor-line.gif) repeat-y center 0;				
+	/*background: transparent url(../images/hor-line.gif) repeat-y center 0;				*/
 }
 #content-wrap {
 	float: left;
-	width: 920px;
+	width: 970px;
 	background: transparent url(../images/dotted-lines.gif) repeat-x;	
 }
 #content {
 	float: left;
-	width: 900px;
+	width: 950px;
 	margin-left: 10px;	
 	display: inline;
 	padding-bottom: 40px;
@@ -345,12 +345,13 @@ input.button {
 
 /* columns */
 #left {
-	width: 580px;	
+	width: 705px;	/*580*/
 	float: left;	
 	padding-top: 15px;	
+	/*border:#F00 dashed 1px;*/
 }
-#right {
-	width: 285px;
+#right {/*285*/
+	width: 240px;
 	float: right;
 	padding-top: 5px;
 }
@@ -359,9 +360,9 @@ input.button {
 	margin-left: 10px;	
 }
 #left h2 {
-	font: normal 3.6em Georgia, 'Times New Roman', Times, Serif;
+	font-family: Arial,Georgia, 'Times New Roman', Times, Serif;
+	font-size:16px;
 	color: #444;	
-	letter-spacing: -2.2px;	
 	margin-bottom: 0px;
 	padding-bottom: 3px;
 	padding-left: 3px;
@@ -436,7 +437,7 @@ input.button {
 }
 .sidemenu ul li a span {
 	color: #9F9F9F;	
-	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-family: Arial,Georgia, 'Times New Roman', Times, Serif;
 	font-style: normal;
 	font-weight: normal;	
 	font-size: .9em;
@@ -494,7 +495,7 @@ input.button {
 #footer-outer .footer-list ul li a span {
 	font-style: italic;
 	font-weight: normal;
-	font-family: Georgia, 'Times New Roman', Times, Serif;
+	font-family: Arial,Georgia, 'Times New Roman', Times, Serif;
 	font-size: .95em;	
 }
 #footer-outer .footer-list ul li a:hover,
@@ -509,7 +510,7 @@ input.button {
 	background: url(../images/dotted-lines.gif) repeat-x;
 	width: 920px;
 	margin: 30px auto 0 auto;	
-	font-family: 'Trebuchet MS', 'Helvetica Neue', Arial, sans-serif;
+	font-family: Arial,'Trebuchet MS', 'Helvetica Neue', Arial, sans-serif;
 	font-size: .9em;		
 	color: #777;
 	border-bottom: 50px solid #FFF; 
