@@ -147,7 +147,7 @@ class BKITUser
 		 	$output = array();
 		 	$output['uid']			= $this->uid;
 		 	$output['name'] 		= $this->firstname." ".$this->lastname;
-		 	$output['birthday']		= $this->birthday;
+		 	$output['birthday']		= date("d.m.y", (int)$this->birthday);	
 		 	$output['sex']			= $this->sex;
 			$output['courseyear']	= $this->courseyear;
 			$output['address']		= $this->address;
