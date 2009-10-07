@@ -16,7 +16,7 @@
       </p>
       <p>$expectation</p>
       <p><strong>Sở Thích:</strong></p>
-      <p>$hobby)</p>
+      <p>$hobby</p>
       <table width="275" border="1" align="left">
         <tr>
           <td width="103" nowrap="nowrap"><div align="right">Họ tên</div></td>
@@ -28,7 +28,7 @@
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Giới Tính:</div></td>
-          <td> $sex </td>
+          <td> $sex</td>
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Sinh Viên Khóa:</div></td>

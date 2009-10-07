@@ -1,12 +1,26 @@
 <?php
+
 		foreach($obj->_vinh_convertArray() as $key => $value)
-		$$key = $value;
+			$$key = $value;
 
 		$nameLevel = array('Chưa biết', 'Căn bản', 'Khá', 'Tốt');
 		$exLevel = array();
-		for($i = 0; $i <= 10; $i++)
-			$exLevel[$i] = $nameLevel[$obj->get('skills['.$i.']')];
+		for($i = 0; $i < 10; $i++)
+        {
+            $skills_array = $obj->get('skills');
+            $ex_level_value[$i] = (int)$skills_array[$i]->value['level'] - 1;
+            $exLevel[$i] = $nameLevel[$ex_level_value[$i]];
+        }
+       // var_dump($exLevel);
+
 		$html = <<<EOT
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<body>
 <form action="Confirm.php" method="post" name="frmMain">
 <table width="707" border="0">
   <tr>
@@ -80,7 +94,7 @@
               <td width="169"><div align="right">Kỹ Năng CorelDraw, PTS</div></td>
               <td width="221"><table width="219" border="0">
                 <tr>
-                  $exLevel[1]
+                  $exLevel[0]
                   </tr>
                 </table></td>
               </tr>
@@ -88,7 +102,7 @@
               <td><div align="right">HTML/CSS:</div></td>
               <td><table width="219" border="0">
                 <tr>
-                  $exLevel[2]
+                  $exLevel[1]
                   </tr>
                 </table></td>
               </tr>
@@ -96,7 +110,7 @@
               <td><div align="right">JavaScript:</div></td>
               <td><table width="219" border="0">
                 <tr>
-                  $exLevel[3]
+                  $exLevel[2]
                   </tr>
                 </table></td>
               </tr>
@@ -104,7 +118,7 @@
               <td><div align="right">Flash, Sliverlight, Air:</div></td>
               <td><table width="219" border="0">
                 <tr>
-                  $exLevel[4]
+                  $exLevel[3]
                   </tr>
                 </table></td>
               </tr>
@@ -119,7 +133,7 @@
               <td width="169"><div align="right">PHP:</div></td>
               <td width="219"><table width="219" border="0">
                 <tr>
-                  $exLevel[5]
+                  $exLevel[4]
                   </tr>
                 </table></td>
               </tr>
@@ -127,7 +141,7 @@
               <td><div align="right">ASP.NET:</div></td>
               <td><table width="219" border="0">
                 <tr>
-                  $exLevel[6]
+                  $exLevel[5]
                   </tr>
                 </table></td>
               </tr>
@@ -135,7 +149,7 @@
               <td><div align="right">JSP:</div></td>
               <td><table width="219" border="0">
                 <tr>
-                  $exLevel[7]
+                  $exLevel[6]
                   </tr>
                 </table></td>
               </tr>
@@ -143,7 +157,7 @@
               <td><div align="right">Google Apps Engine:</div></td>
               <td><table width="219" border="0">
                 <tr>
-                  $exLevel[8]
+                  $exLevel[7]
                   </tr>
                 </table></td>
               </tr>
@@ -151,7 +165,7 @@
               <td><div align="right">MySQL:</div></td>
               <td><table width="219" border="0">
                 <tr>
-                  $exLevel[9]
+                  $exLevel[8]
                   </tr>
                 </table></td>
               </tr>
@@ -159,7 +173,7 @@
               <td height="30"><div align="right">MS SQL Server:</div></td>
               <td><table width="219" border="0">
                 <tr>
-                  $exLevel[10]
+                  $exLevel[9]
                   </tr>
                 </table></td>
               </tr>
@@ -172,11 +186,36 @@
   <tr>
     <td width="284" height="35" valign="top"><div align="center">
         <input type="reset" value="Reset" />
-      <input type="submit" name="btnSubmit" id="btnSubmit" value="Register" />
+        
+      <input type="submit" name="btnSubmit" id="btnSubmit" value="Confirm" />
+      
+      <input name="txtHobby" type="hidden" id="txtHobby" value="$hobby" />
+      <input name="txtName" type="hidden" id="txtName" value="$name" />
+      <input name="txtName" type="hidden" id="txtBirthday" value="$birthday" />
+      <input name="txtExpectation" type="hidden" id="txtExpectation" value="$expectation" />
+      <input name="radSex" type="hidden" id="radSex" value="$sex" />
+      <input name="lstCourse" type="hidden" id="lstCourse" value="$courseyear" />
+      <input name="txtAddress" type="hidden" id="txtAddress" value="$address" />
+      <input name="txtPhone" type="hidden" id="txtPhone" value="$phone" />
+      <input name="txtYahoo" type="hidden" id="txtYahoo" value="$yahooid" />
+      <input name="txtEmail" type="hidden" id="txtEmail" value="$email" />
+      <input name="PhotoshopSkill" type="hidden" id="PhotoshopSkill" value="$ex_level_value[0]" />
+      <input name="HTMLSkill" type="hidden" id="HTMLSkill" value="$ex_level_value[1]" />
+      <input name="JVScriptSkill" type="hidden" id="JVScriptSkill" value="$ex_level_value[2]" />
+      <input name="FlashSkill" type="hidden" id="FlashSkill" value="$ex_level_value[3]" />
+      <input name="PHPSkill" type="hidden" id="PHPSkill" value="$ex_level_value[4]" />
+      <input name="ASPSkill" type="hidden" id="ASPSkill" value="$ex_level_value[5]" />
+      <input name="JSPSkill" type="hidden" id="JSPSkill" value="$ex_level_value[6]" />
+      <input name="GAESkill" type="hidden" id="GAESkill" value="$ex_level_value[7]" />
+      <input name="MySQLSkill" type="hidden" id="MySQLSkill" value="$ex_level_value[8]" />
+      <input name="MSSQLSkill" type="hidden" id="MSSQLSkill" value="$ex_level_value[9]" />
+      
     </div></td>
     </tr>
   </table>
 </form>
+</body>
+</html>
 EOT;
 
 	return $html;

@@ -2,12 +2,15 @@
 		foreach($obj->_vinh_convertArray() as $key => $value)
 			$$key = $value;
 
-
 		$nameLevel = array('Chưa biết', 'Căn bản', 'Khá', 'Tốt');
 		$exLevel = array();
-		for($i = 0; $i <= 10; $i++)
-			$exLevel[$i] = $nameLevel[$obj->get('skills['.$i.']')];
-
+		for($i = 0; $i < 10; $i++)
+        {
+            $skills_array = $obj->get('skills');
+            $ex_level_value[$i] = (int)$skills_array[$i]->value['level'] - 1;
+            $exLevel[$i] = $nameLevel[$ex_level_value[$i]];
+        }
+       // var_dump($exLevel);
 		$html = <<<EOT
 <form action="Confirm.php" method="post" name="frmMain">
 <table width="707" border="0">
@@ -82,7 +85,7 @@
               <td width="169"><div align="right">Kỹ Năng CorelDraw, PTS</div></td>
               <td width="221"><table width="219" border="0">
                 <tr>
-                  $exLevel[1]
+                  $exLevel[0]
                   </tr>
                 </table></td>
               </tr>
@@ -90,7 +93,7 @@
               <td><div align="right">HTML/CSS:</div></td>
               <td><table width="219" border="0">
                 <tr>
-                  $exLevel[2]
+                  $exLevel[1]
                   </tr>
                 </table></td>
               </tr>
@@ -98,7 +101,7 @@
               <td><div align="right">JavaScript:</div></td>
               <td><table width="219" border="0">
                 <tr>
-                  $exLevel[3]
+                  $exLevel[2]
                   </tr>
                 </table></td>
               </tr>
@@ -106,7 +109,7 @@
               <td><div align="right">Flash, Sliverlight, Air:</div></td>
               <td><table width="219" border="0">
                 <tr>
-                  $exLevel[4]
+                  $exLevel[3]
                   </tr>
                 </table></td>
               </tr>
@@ -121,7 +124,7 @@
               <td width="169"><div align="right">PHP:</div></td>
               <td width="219"><table width="219" border="0">
                 <tr>
-                  $exLevel[5]
+                  $exLevel[4]
                   </tr>
                 </table></td>
               </tr>
@@ -129,7 +132,7 @@
               <td><div align="right">ASP.NET:</div></td>
               <td><table width="219" border="0">
                 <tr>
-                  $exLevel[6]
+                  $exLevel[5]
                   </tr>
                 </table></td>
               </tr>
@@ -137,7 +140,7 @@
               <td><div align="right">JSP:</div></td>
               <td><table width="219" border="0">
                 <tr>
-                  $exLevel[7]
+                  $exLevel[6]
                   </tr>
                 </table></td>
               </tr>
@@ -145,7 +148,7 @@
               <td><div align="right">Google Apps Engine:</div></td>
               <td><table width="219" border="0">
                 <tr>
-                  $exLevel[8]
+                  $exLevel[7]
                   </tr>
                 </table></td>
               </tr>
@@ -153,7 +156,7 @@
               <td><div align="right">MySQL:</div></td>
               <td><table width="219" border="0">
                 <tr>
-                  $exLevel[9]
+                  $exLevel[8]
                   </tr>
                 </table></td>
               </tr>
@@ -161,7 +164,7 @@
               <td height="30"><div align="right">MS SQL Server:</div></td>
               <td><table width="219" border="0">
                 <tr>
-                  $exLevel[10]
+                  $exLevel[9]
                   </tr>
                 </table></td>
               </tr>
@@ -178,7 +181,6 @@
     </tr>
   </table>
 EOT;
-
 
 	return $html;
 
