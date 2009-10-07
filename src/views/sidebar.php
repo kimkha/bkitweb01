@@ -9,11 +9,12 @@
 		<li><a href="Register.php">Register</a></li>
 	</ul>
 	    <form id="form1" method="post" action="Login.php">
+		<b>Đăng nhập</b>
 	  <p>Email:</p>
-	      <input name="email" type="text" id="email" size="20" />
+	      <input name="email" type="text" id="email" style="width:135px;" />
 	  <p>Password:</p>
 	      <p>
-	      <input name="password" type="password" id="password" size="20" />
+	      <input name="password" type="password" id="password" style="width:135px;" />
 </p>
 	      <p>
 	        <input type="checkbox" name="repassword" id="repassword" />
