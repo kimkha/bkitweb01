@@ -13,10 +13,12 @@ function page_draw($title, $body){
 	}
 	$vars['title'] = $CONFIG['title'] . $title;
 	
+	$sidebar = view('sidebar',array('object'=>get_user_login(),'viewtype'=>getLevelUser()));
+
 	$header   = view_theme('header', array());
 	$footer   = view_theme('footer', array());
 	$content  = view_theme('content', array('body' => $body));
-	$sidebar  = view_theme('sidebar', array());
+	$sidebar  = view_theme('sidebar', array('sidebar' => $sidebar));
 	
 	$vars['body'] = $header.$content.$sidebar.$footer;
 	// Chú ý thứ tự gọi phải là content -> siderbar

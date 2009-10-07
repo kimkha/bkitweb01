@@ -1,13 +1,9 @@
 <?php
-
+	$sidebar = $vars['sidebar'];
 	$html = <<<EOT
 		<div id="right">
 			<div class="sidemenu">	
-				<h3>Menu</h3>
-				<ul>				
-					<li><a href="index.php">Home</a></li>
-
-				</ul>	
+				$sidebar	
 			</div>
 		</div>
 
