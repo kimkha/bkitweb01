@@ -1,5 +1,6 @@
 <?php
-	if($obj == NULL)
+
+	if($type == 'normal')
 		$html = <<<EOT
 <form action="Confirm.php" method="post" name="frmMain">
 <table width="778" border="0">
