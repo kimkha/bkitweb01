@@ -11,7 +11,7 @@
             $ex_level_value[$i] = (int)$skills_array[$i]->value['level'] - 1;
             $exLevel[$i] = $nameLevel[$ex_level_value[$i]];
         }
-       // var_dump($exLevel);
+       
 
 		$html = <<<EOT
 <form action="Confirm.php" method="post" name="frmMain">
