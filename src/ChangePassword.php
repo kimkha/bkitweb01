@@ -34,7 +34,7 @@
     else
     {
 ?>
-<form id="form1" name="form1" method="post" action="ChangePassword.php?DBGSESSID=0@clienthost:7869">
+<form id="form1" name="form1" method="post" action="ChangePassword.php">
   <p>
     <label>Mật khẩu cũ
       <input type="password" name="txtOldPass" id="txtOldPass" tabindex="1"/>
