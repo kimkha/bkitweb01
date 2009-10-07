@@ -237,10 +237,17 @@ class BKITUser
     } 
     function get_user_login()
     {
-        $is_email = __user__is_valid_email($_COOKIE['user_email']);
-        $is_md5_password = __user__is_valid_md5_password($_COOKIE['user_password']);
-       
-        if (!$is_email || !$is_md5_password) 
+    	// Fix lỗi - hungvinh
+    	if(isset($_COOKIE['user_email']))
+        	$is_email = __user__is_valid_email($_COOKIE['user_email']);
+    	else 
+    		$is_email = FALSE;
+        if(isset($_COOKIE['user_password']))
+        	$is_md5_password = __user__is_valid_md5_password($_COOKIE['user_password']);
+       	else
+       		$is_md5_password = FALSE;
+       		
+        if ($is_email == FALSE || $is_md5_password == FALSE) 
             return FALSE;
             
         
@@ -261,13 +268,25 @@ class BKITUser
     }
     function is_user_login()
     {
-        $is_email = __user__is_valid_email($_COOKIE['user_email']);    
+        /*$is_email = __user__is_valid_email($_COOKIE['user_email']);    
         $is_md5_password = __user__is_valid_md5_password($_COOKIE['user_password']);
         
         
         if (!$is_email || !$is_md5_password) 
             return FALSE;
-             
+            */
+       	if(isset($_COOKIE['user_email']))
+        	$is_email = __user__is_valid_email($_COOKIE['user_email']);
+    	else 
+    		$is_email = FALSE;
+        if(isset($_COOKIE['user_password']))
+        	$is_md5_password = __user__is_valid_md5_password($_COOKIE['user_password']);
+       	else
+       		$is_md5_password = FALSE;
+       		
+        if ($is_email == FALSE || $is_md5_password == FALSE) 
+            return FALSE;    
+			 
         //get user info from database
         $user = get_data("SELECT * FROM profile WHERE email = '".$_COOKIE['user_email']."'",'user');
         if (count($user) == 0)
@@ -347,25 +366,38 @@ class BKITUser
             setcookie('user_password');
         }
     }
-//    start_connection();
-//    $t = get_user(2);
-//    $a = new BKITUser();
-//    $a->set('uid',1);
-//    $a->delete();
-//    $t1 = new BKITUserSkill();
-//    $t1->key = 9;
-//    $t1->value['level'] = 1;
-//    
-//    $t2 = new BKITUserSkill(); 
-//    $t2->key = 10;
-//    $t2->value['level'] = 2;
-//    $as =  $t[0]->get('skills');
-//    array_push($as, $t1);
-//    array_push($as, $t2);
-//    $t[0]->set('skills', $as);
-//    $t[0]->save();
-    //login('kyo.cooro@gmail.com','8768f1ff177d8341bcc40a7210af50e9');
-//    $result = get_; //'kyo.cooro@gmail.com','8768f1ff177d8341bcc40a7210af50e9');
-//    logout();
-   // $result = get_user_login();
+    
+    function getLevelUser(){
+    	if(is_user_login() ==  FALSE)
+    		$level = 0;
+   		else {
+   			if(is_admin_login() == FALSE)
+   				$level = 1;
+			else 
+				$level = 777;
+   		}
+   		return $level;
+    }
+    /*start_connection();
+    $t = get_user(2);
+    $a = new BKITUser();
+    $a->set('uid',1);
+    $a->delete();
+    $t1 = new BKITUserSkill();
+    $t1->key = 9;
+    $t1->value['level'] = 1;
+    
+    $t2 = new BKITUserSkill(); 
+    $t2->key = 10;
+    $t2->value['level'] = 2;
+    $as =  $t[0]->get('skills');
+    array_push($as, $t1);
+    array_push($as, $t2);
+    $t[0]->set('skills', $as);
+    $t[0]->save();
+    login('kyo.cooro@gmail.com','8768f1ff177d8341bcc40a7210af50e9');
+    $result = get_; //'kyo.cooro@gmail.com','8768f1ff177d8341bcc40a7210af50e9');
+    logout();
+    $result = get_user_login();
+*/
 ?>
