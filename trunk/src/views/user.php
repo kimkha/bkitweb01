@@ -4,7 +4,7 @@
 	$obj = $vars['object'];
 	$type = $vars['viewtype'];
 	
-	$output ="L?i";
+	$output ="Lỗi";
 	
 	if($obj == NULL)
 		$output = include_once('forms/Register.php');
