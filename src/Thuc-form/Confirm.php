@@ -39,57 +39,57 @@
       <legend>Thông Tin Cá Nhân</legend>
       <p>
         <label><strong>Nguyện Vọng</strong></label>
-        <p>$obj->get('expectation')</p>
+        <p>{$obj->get('expectation')}</p>
       <p><strong>Sở Thích:</strong></p>
-      <p>$obj->get('hobby')</p> 
+      <p>{$obj->get('hobby')}</p> 
       <table width="275" border="1" align="left">
         <tr>
           <td width="103" nowrap="nowrap"><div align="right">Họ tên</div></td>
           <td width="162">
-            $obj->get('firstname') $obj->get('lastname')
+            {$obj->get('firstname')} {$obj->get('lastname')}
             </td>
           </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Ngày Sinh:</div></td>
           <td>
-            $obj->get('birthday')
+            {$obj->get('birthday')}
             </td>
           </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Giới Tính:</div></td>
           <td>
-            $obj->get('sex')
+            {$obj->get('sex')}
             </td>
           </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Sinh Viên Khóa:</div></td>
           <td>
-            $obj->get('courseyear')
+            {$obj->get('courseyear')
             </td>
           </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Địa Chỉ Liên Lạc</div></td>
           <td>
-            $obj->get('address')
-            </td>
+            {$obj->get('address')
+            }</td>
           </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Số Điện Thoại</div></td>
           <td>
-            $obj->get('phone')
-            </td>
+            {$obj->get('phone')
+            }</td>
           </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">YahooID</div></td>
           <td>
-            $obj->get('yahooid')
-            </td>
+            {$obj->get('yahooid')
+            }</td>
           </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Email:</div></td>
           <td>
-            $obj->get('email')
-            </td>
+            {$obj->get('email')
+            }</td>
           </tr>
         </table>
       
