@@ -13,7 +13,7 @@ function page_draw($title, $body){
 	}
 	$vars['title'] = $CONFIG['title'] . $title;
 	
-	$sidebar = view('sidebar',array('object'=>get_user_login(),'viewtype'=>getLevelUser()));
+	$sidebar = view('sidebar',array());
 
 	$header   = view_theme('header', array());
 	$footer   = view_theme('footer', array());

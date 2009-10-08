@@ -1,6 +1,7 @@
 <?php
-	$levelUser = $vars['viewtype'];
-	$user = $vars['object'];
+	$levelUser = getLevelUser();
+	$user = get_user_login();
+
 	if($levelUser == 0){
 		$html = <<<EOT
 	<ul>				
