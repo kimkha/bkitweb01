@@ -22,14 +22,13 @@
 	//Check User : 1
 	
 	if($check == 0){
-		$iEvents = array();
-		$iEvents = get_events();
-		if(!empty($iEvents))
-		foreach ($iEvents as $key => $value)
-			$body .= view("event",array('object'=>$value,'viewtype'=>'short'));
+		$event = new BKITEvent();
+	
+		$iEvent = get_events();
+		if(!empty($iEvent))
+			foreach($iEvent as $key => $value)
+				$body .= view("event",array('object'=>$value,'viewtype'=>'short'));
 		
-
-
 		//Test: change 'short' to 'full'
 	}
 	else if($check == 1){
