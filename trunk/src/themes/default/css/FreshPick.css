@@ -145,7 +145,7 @@ input, select, textarea {
 	border-width: 1px;
 	border-style: solid;
   	border-color: #D4D4D4 #EBEBEB #EBEBEB #D4D4D4; 	
-	font: 11px Arial,'Lucida Grande', Verdana, Helvetica, sans-serif;
+	font: 12px Arial,'Lucida Grande', Verdana, Helvetica, sans-serif;
 }
 input:focus, select:focus, textarea:focus {
 	color: #7BA857;
