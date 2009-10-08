@@ -6,11 +6,11 @@ Các kiểu viewtype:
 
 - views/user.php
 
-Nếu object =NULL chuyển đến view Register
+Nếu object =NULL chuyển đến view Register -> bắt buộc viewtype = REGISTER 
 còn không viewtype
-+ profile
-+ userprofileinfo
-+ confirm
++ PROFILE
++ DISPLAYPROFILEINFO
++ CONFIRM
 
 
 - views/sidebar.php
