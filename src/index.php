@@ -22,9 +22,11 @@
 	//Check User : 1
 	
 	if($check == 0){
-		$event = new BKITEvent();
-	
-		$iEvent = get_events();
+		// Đặt ID của bài giới thiệu BkitWeb tại đây
+		$idname = 0;
+		$bkitweb = get_event($idname);
+
+		$iEvent = get_events("time_created ASC",5);
 		if(!empty($iEvent))
 			foreach($iEvent as $key => $value)
 				$body .= view("event",array('object'=>$value,'viewtype'=>'short'));
