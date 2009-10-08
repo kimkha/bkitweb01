@@ -113,7 +113,7 @@ class BKITEvent{
 	 * @param nothing
 	 * @return array of object
 	 */
-	 function _vinh_convertArray(){
+	 function _convertArray(){
 		global $CONFIG;
 	 	$output = array();
 	 	$output['eid']			= $this->eid;

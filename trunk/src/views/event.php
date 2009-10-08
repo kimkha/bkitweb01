@@ -13,7 +13,7 @@
 	 $output = '';
 	 
 
-	 foreach($obj->_vinh_convertArray() as $key => $value)
+	 foreach($obj->_convertArray() as $key => $value)
 			$$key = $value;
 
 	 
