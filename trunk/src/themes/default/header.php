@@ -9,8 +9,9 @@
 		
 		<div  id="nav">
 			<ul>
-				<li class="first" id="current"><a href="index.php">Trang chủ</a></li>
-				<li class="first" id="current"><a href="index.php">Create Event</a></li>
+				<li class="first" id="current"><a href="index.php">Homepage</a></li>
+				<li class="first" id="current"><a href="contact.php">Contact</a></li>
+				<li class="first" id="current"><a href="about.php">About BHR</a></li>
 
 			</ul>		
 		</div>	
