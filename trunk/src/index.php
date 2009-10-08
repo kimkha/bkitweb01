@@ -23,9 +23,13 @@
 	
 	if($check == 0){
 		// Đặt ID của bài giới thiệu BkitWeb tại đây
-		$idname = 0;
+		$idname = 35;
 		$bkitweb = get_event($idname);
-
+		if(!empty($bkitweb))
+			foreach($bkitweb as $key => $value)
+				$body .= view("event",array('object'=>$value,'viewtype'=>'short'));
+		
+		// Hiển thị bài viết
 		$iEvent = get_events("time_created ASC",5);
 		if(!empty($iEvent))
 			foreach($iEvent as $key => $value)
