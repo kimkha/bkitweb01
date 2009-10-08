@@ -13,30 +13,26 @@
 	 $output = '';
 	 
 
-	 $eid 		= $obj->get('eid');
-	 $name		= $obj->get('name');
-	 $title		= $obj->get('title');
-	 $headline 	= $obj->get('headline');
-	 $time		= $obj->get('time_updated');
-	 $content	= $obj->get('content');
-	 $thumb		= $obj->getThumb();
+	 foreach($obj->_vinh_convertArray() as $key => $value)
+			$$key = $value;
+
 	 
 	 switch($type){
 	 	case 'short':
 				$output = <<<EOT
 		<div id="featured" class="clear">						
 			<div class="image-block">
-              <img src="$thumb" alt="featured"/>
+              <img src="{$thumb}" alt="featured"/>
  	 		</div>			
 			
 			<div class="text-block">
 			
-				<h2><a href="viewevent.php?id=$eid"><B>[$name]</B> $title </a></h2>
+				<h2><a href="Event.php?id=$eid"><B>[$name]</B> $title </a></h2>
 			
-				<p class="post-info">Posted by <a href="index.php">hungvinh</a> | Viết lúc $time</a></p>
+				<p class="post-info">Posted by <a href="index.php">admin</a> | Viết lúc $time</a></p>
 				
 				<p>$headline</p>
-				<p><a href="viewevent.php?id=$eid" >Read More</a></p>
+				<p><a href="Event.php?id=$eid" >Read More</a></p>
 								
 			</div>								
 		</div>	
@@ -49,9 +45,9 @@ EOT;
 			
 			<div class="content-block">
 			
-				<h2><a href="viewevent.php?id=$eid"><B>[$name]</B> $title </a></h2>
+				<h2><a href="Event.php?id=$eid"><B>[$name]</B> $title </a></h2>
 			
-				<p class="post-info">Posted by <a href="index.php">hungvinh</a> | Viết lúc $time</a></p>
+				<p class="post-info">Posted by <a href="index.php">admin</a> | Viết lúc $time</a></p>
 				
 				<p>$content</p>
 				
@@ -62,7 +58,7 @@ EOT;
 			break;	
 		case 'title':
 			$output= <<<EOT
-			<li><a href="viewevent.php?id=$eid"><B>[$eid]</B> $title</a></li>
+			<li><a href="Event.php?id=$eid"><B>[$eid]</B> $title</a></li>
 EOT;
 			break;
  	

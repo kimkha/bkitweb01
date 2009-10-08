@@ -6,15 +6,11 @@ class BKITEvent{
 	private $title = '';
 	private $headline = '';//HTML of headline
 	private $content = '';//HTML of full content
-	private $image = '';//Full URL of image (this attributes is not inserted to database)
-	private $image_name = '';//filename of image. Image upload to ./upload/images/ folder
+	private $image = '';//filename of image. Image upload to ./upload/images/ folder
+	private $image_name = '';//Full URL of image (this attributes is not inserted to database)
 	private $time_created = '';
 	private $time_updated = '';
 
-	function getThumb(){
-		global $CONFIG;
-		return $CONFIG['root']."images/thumb/".$this->image_name;
-	}
 
 	/**
 	 * Get value of attribute has $name
@@ -118,14 +114,15 @@ class BKITEvent{
 	 * @return array of object
 	 */
 	 function _vinh_convertArray(){
+		global $CONFIG;
 	 	$output = array();
 	 	$output['eid']			= $this->eid;
 	 	$output['name'] 		= $this->name;
 	 	$output['title']		= $this->title;
 	 	$output['headline']		= $this->headline;
 	 	$output['content']		= $this->content;
-	 	$output['image']		= $CONFIG['root']."images/thumb/".$this->image_name;
-	 	$output['time_updated']	= $this->time_updated;
+	 	$output['thumb']		= $CONFIG['root']."upload/images/".$this->image;
+	 	$output['time']			= date("d-m-y", (int)$this->time_updated);
 		return $output;
 	 }
 }
