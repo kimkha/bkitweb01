@@ -39,7 +39,7 @@
 		$obj = new BKITUser();
 		$obj->set('firstname','hungvinh');
 		
-		$body = view("user",array('object'=>$obj,'viewtype'=>'profile'));
+		$body = view("user",array('object'=>NULL,'viewtype'=>'REGISTER'));
 	}
 	// Draw the page and view it.
 	page_draw('Homepage', $body);

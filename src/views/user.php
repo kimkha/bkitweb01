@@ -1,4 +1,5 @@
 <?php
+	if(isset($obj))
 	if(is_array($obj))
 		$obj = array();
 	else
@@ -7,13 +8,13 @@
 	$obj = $vars['object'];
 	$type = $vars['viewtype'];
 	
-	if(isset($vars['extend']['status'])
+	if(isset($vars['extend']['status']))
 		$status = $vars['extend']['status'];
 		
-	if(isset($vars['extend']['page'])
+	if(isset($vars['extend']['page']))
 		$page = $vars['extend']['page'];
 		
-	if(isset($vars['extend']['pageview'])
+	if(isset($vars['extend']['pageview']))
 		$page = $vars['extend']['pageview'];			
 	
 	$output ="Lỗi";
@@ -31,7 +32,7 @@
 			case 'DISPLAYPROFILEINFOR':
 				$output = include_once('forms/DisplayProfileInfor.php');
 				break;	
-			case 'LISUSER':
+			case 'LISTUSER':
 				$output = include_once('forms/ListUser.php');
 				break;
 			default:
