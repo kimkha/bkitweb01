@@ -8,7 +8,7 @@
 	$skills_array = $obj->get('skills');
 	if(!empty($skills_array));
 		foreach($skills_array as $key => $value){
-			$ex_level_value = (int)($value->value['level']);
+			$ex_level_value = (int)($value->value['level']) -1 ;
 			$exLevel[$key] = $nameLevel[$ex_level_value];
 		}
 
