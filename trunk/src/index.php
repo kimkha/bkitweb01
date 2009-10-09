@@ -17,9 +17,9 @@
 	
 	$body = "";
 	
-	$check = 1;
+	$check = 0;
 	//Check Event : 0
-	//Check User : 1
+	//Check User : 1 -> PAGE CONFIRM
 	
 	if($check == 0){
 		// Đặt ID của bài giới thiệu BkitWeb tại đây
@@ -30,7 +30,7 @@
 				$body .= view("event",array('object'=>$value,'viewtype'=>'short'));
 		
 		// Hiển thị bài viết
-		$iEvent = get_events("time_created ASC",5);
+		$iEvent = get_events("time_created DESC",5);
 		if(!empty($iEvent))
 			foreach($iEvent as $key => $value)
 				$body .= view("event",array('object'=>$value,'viewtype'=>'short'));
