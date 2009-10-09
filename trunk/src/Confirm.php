@@ -29,8 +29,8 @@
         
         if ($_POST['btnSubmit'] == 'Register')
         {
-        $vars = array('object' => $user_info, 'viewtype' => 'normal');
-        $html = view('form/Confirm.php',$vars);
+        $vars = array('object' => $user_info, 'viewtype' => 'CONFIRM');
+        $html = view('user',$vars);
         }
         else 
         {
@@ -40,7 +40,7 @@
             //var_dump($_POST);
             //var_dump($user_info);
         }
-        echo $html;
+        page_draw('Homepage', $html);
     }
 ?>
 
