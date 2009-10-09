@@ -122,7 +122,10 @@ class BKITEvent{
 	 	$output['headline']		= $this->headline;
 	 	$output['content']		= $this->content;
 	 	$output['thumb']		= $CONFIG['root']."upload/images/".$this->image;
-	 	$output['time']			= date("d-m-y", (int)$this->time_updated);
+		if($this->time_updated == 0)
+			$output['time']			= date("d-m-y", (int)$this->time_created);
+		else
+			$output['time']			= date("d-m-y", (int)$this->time_updated);
 		return $output;
 	 }
 }
