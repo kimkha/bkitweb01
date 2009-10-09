@@ -6,7 +6,7 @@
 		$html = <<<EOT
 	<ul>				
 		<li><a href="index.php">Home</a></li>
-		<li><a href="Event.php">Event</a></li>
+		<li><a href="Events.php">Event</a></li>
 		<li><a href="Register.php">Register</a></li>
 	</ul>
 	    <form id="form1" method="post" action="Login.php">
@@ -31,7 +31,7 @@ EOT;
 		$html = <<<EOT
 	<ul>				
 		<li><a href="index.php">Home</a></li>
-		<li><a href="Event.php">Event</a></li>
+		<li><a href="Events.php">Event</a></li>
 		<li><a href="Profile.php">Profile</a></li>
 		<li><a href="ChangePassword.php">Change Password</a></li>
 		<li>$user <a href="Logout.php">(Logout)</a></li>
