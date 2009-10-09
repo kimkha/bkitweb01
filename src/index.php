@@ -17,7 +17,7 @@
 	
 	$body = "";
 	
-	$check = 0;
+	$check = 1;
 	//Check Event : 0
 	//Check User : 1
 	
@@ -42,7 +42,7 @@
 		$obj = new BKITUser();
 		$obj->set('firstname','hungvinh');
 		
-		$body = view("user",array('object'=>NULL,'viewtype'=>'REGISTER'));
+		$body = view("user",array('object'=>$obj,'viewtype'=>'CONFIRM'));
 	}
 	// Draw the page and view it.
 	page_draw('Homepage', $body);

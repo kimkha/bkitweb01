@@ -1,50 +1,57 @@
 <?php
+	foreach($obj->_vinh_convertArray() as $key => $value)
+		$$key = $value;
 
-		foreach($obj->_vinh_convertArray() as $key => $value)
-			$$key = $value;
+	$nameLevel = array('Chưa biết', 'Căn bản', 'Khá', 'Tốt');
+	$exLevel = array();
+	$ex_level_value = array();
+	$skills_array = $obj->get('skills');
+	if(!empty($skills_array));
+		foreach($skills_array as $key => $value){
+			$ex_level_value = (int)($value->value['level']);
+			$exLevel[$key] = $nameLevel[$ex_level_value];
+		}
 
-		$nameLevel = array('Chưa biết', 'Căn bản', 'Khá', 'Tốt');
-		$exLevel = array();
-		for($i = 0; $i < 10; $i++)
-        {
-            $skills_array = $obj->get('skills');
-            $ex_level_value[$i] = (int)$skills_array[$i]->value['level'] - 1;
-            $exLevel[$i] = $nameLevel[$ex_level_value[$i]];
-        }
-       
-
+	
 		$html = <<<EOT
 <form action="Confirm.php" method="post" name="frmMain">
-<table width="707" border="0">
+<table width="569" border="0">
   <tr>
-    <td width="284" height="193" valign="top"><fieldset>
+    <td width="503" height="389" valign="top"><fieldset>
+      <strong>
       <legend>Thông Tin Cá Nhân</legend>
+      </strong>
       <p>
-        <label><strong>Nguyện Vọng</strong></label>
-        <p>$expectation</p>
-      <p><strong>Sở Thích:</strong></p>
-      <p>$hobby</p> 
-      <table width="275" border="1" align="left">
+        <label><strong>
+          Nguyện Vọng</strong></label>
+      <p>
+          $expectation
+          </p>
+      <p><strong>Sở Thích</strong></p>
+      <p>
+        $hobby
+        </p> 
+      <table width="502" border="0" align="left">
         <tr>
           <td width="103" nowrap="nowrap"><div align="right">Họ tên</div></td>
-          <td width="162">
+          <td width="282">
             $name
             </td>
           </tr>
         <tr>
-          <td nowrap="nowrap"><div align="right">Ngày Sinh:</div></td>
+          <td nowrap="nowrap"><div align="right">Ngày Sinh</div></td>
           <td>
             $birthday
             </td>
           </tr>
         <tr>
-          <td nowrap="nowrap"><div align="right">Giới Tính:</div></td>
+          <td nowrap="nowrap"><div align="right">Giới Tính</div></td>
           <td>
             $sex
             </td>
           </tr>
         <tr>
-          <td nowrap="nowrap"><div align="right">Sinh Viên Khóa:</div></td>
+          <td nowrap="nowrap"><div align="right">Sinh Viên Khóa</div></td>
           <td>
             $courseyear
             </td>
@@ -74,26 +81,36 @@
             </td>
           </tr>
         </table>
-      
-      </fieldset></td>
-    <td width="413" rowspan="2" valign="top"><fieldset>
+    </fieldset></td>
+    </tr>
+  <tr>
+    <td valign="top"><fieldset>
+      <strong>
       <legend>Kỹ Năng Chuyên Môn</legend>
-      
+      </strong>
+      <ul>
+        <li>1: Chưa biết</li>
+        <li>2: Căn bản</li>
+        <li>3: Khá </li>
+        <li>4: Tốt </li>
+      </ul>
       <fieldset>
+        <strong>
         <legend>Thiết Kế Web</legend>
+        </strong>
         <div id="skill1" style="margin: 3px; padding: 3px; float: left;">
-          <table width="400" border="1">
+          <table width="502" border="0">
             <tr>
-              <td width="169"><div align="right">Kỹ Năng CorelDraw, PTS</div></td>
-              <td width="221"><table width="219" border="0">
+              <td width="191"><div align="right">Kỹ Năng CorelDraw, PTS:</div></td>
+              <td width="251"><table width="259" border="0">
                 <tr>
-                  $exLevel[0]
+                 $exLevel[0]
                   </tr>
                 </table></td>
               </tr>
             <tr>
               <td><div align="right">HTML/CSS:</div></td>
-              <td><table width="219" border="0">
+              <td><table width="259" border="0">
                 <tr>
                   $exLevel[1]
                   </tr>
@@ -101,7 +118,7 @@
               </tr>
             <tr>
               <td><div align="right">JavaScript:</div></td>
-              <td><table width="219" border="0">
+              <td><table width="259" border="0">
                 <tr>
                   $exLevel[2]
                   </tr>
@@ -109,30 +126,32 @@
               </tr>
             <tr>
               <td><div align="right">Flash, Sliverlight, Air:</div></td>
-              <td><table width="219" border="0">
+              <td><table width="259" border="0">
                 <tr>
                   $exLevel[3]
                   </tr>
                 </table></td>
               </tr>
             </table>
-          </div>
-        
-        </fieldset>
-      <fieldset><legend>Lập Trình Web</legend>
-        <div id="skill2" style="margin: 3px; padding: 3px; float: left;">
-          <table width="400" border="1" cellspacing="1">
+        </div>
+      </fieldset>
+      <fieldset>
+        <strong>
+        <legend>Lập Trình Web</legend>
+        </strong>
+        <div id="skill2" style="text-align: center; margin: 3px; padding: 3px; float: left;">
+          <table width="503" border="0" cellspacing="0">
             <tr>
-              <td width="169"><div align="right">PHP:</div></td>
-              <td width="219"><table width="219" border="0">
+              <td width="192"><div align="right">PHP:</div></td>
+              <td width="257"><table width="259" border="0">
                 <tr>
-                  $exLevel[4]
+                $exLevel[4]
                   </tr>
                 </table></td>
               </tr>
             <tr>
               <td><div align="right">ASP.NET:</div></td>
-              <td><table width="219" border="0">
+              <td><table width="259" border="0">
                 <tr>
                   $exLevel[5]
                   </tr>
@@ -140,7 +159,7 @@
               </tr>
             <tr>
               <td><div align="right">JSP:</div></td>
-              <td><table width="219" border="0">
+              <td><table width="259" border="0">
                 <tr>
                   $exLevel[6]
                   </tr>
@@ -148,7 +167,7 @@
               </tr>
             <tr>
               <td><div align="right">Google Apps Engine:</div></td>
-              <td><table width="219" border="0">
+              <td><table width="259" border="0">
                 <tr>
                   $exLevel[7]
                   </tr>
@@ -156,26 +175,27 @@
               </tr>
             <tr>
               <td><div align="right">MySQL:</div></td>
-              <td><table width="219" border="0">
+              <td><table width="259" border="0">
                 <tr>
                   $exLevel[8]
-                  </tr>
-                </table></td>
+				  </tr>
+                </table>
+				</td>
               </tr>
             <tr>
               <td height="30"><div align="right">MS SQL Server:</div></td>
-              <td><table width="219" border="0">
+              <td><table width="259" border="0" id="none">
                 <tr>
                   $exLevel[9]
                   </tr>
                 </table></td>
               </tr>
             </table>
-          <p>&nbsp;</p>
         </div>
-        </fieldset>  
-      </fieldset></td>
+      </fieldset>
+    </fieldset></td>
   </tr>
+
   <tr>
     <td width="284" height="35" valign="top"><div align="center">
         <input type="reset" value="Reset" />
@@ -205,9 +225,11 @@
       
     </div></td>
     </tr>
-  </table>
+</table>
 </form>
 EOT;
 
+ 
 	return $html;
+
 ?>
