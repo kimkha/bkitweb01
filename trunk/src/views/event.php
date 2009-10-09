@@ -22,7 +22,7 @@
 				$output = <<<EOT
 		<div id="featured" class="clear">						
 			<div class="image-block">
-              <img src="{$thumb}" alt="featured"/>
+              <img src="$thumb" alt="featured"/>
  	 		</div>			
 			
 			<div class="text-block">

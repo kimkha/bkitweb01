@@ -26,6 +26,19 @@ class BKITUser
         private $hobby = '';
         private $skills = array();
         private $status = 'waitting';
+
+		function __construct() {
+			$skills = array();
+			$count = 0;
+			while($count < 10){
+				$skill = new BKITUserSkill();
+				$skill->key = $count;
+				array_push($skills, $skill);
+				$count++;
+			}
+			$this->set('skills', $skills);
+		}
+
         function get($attr)
         {  
             return $this->$attr;
