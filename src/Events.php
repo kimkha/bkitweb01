@@ -5,7 +5,7 @@ $event_number=db_query("SELECT COUNT(`eid`) FROM `event` ");
 $count=mysql_result($event_number, 0);
 
 	$page=@$_GET['page'];
-	$view_num =  $_GET['view'];
+	$view_num =  @$_GET['view'];
 	
 	if(isset($view_num)){
 		$view_num =  $_GET['view'];
@@ -27,7 +27,7 @@ $count=mysql_result($event_number, 0);
 	$limit_event=3;
 	$offset_event=$limit_event*$page+1;
 	$Events = new BKITEvent();
-	$list_Event = get_events("time_created ASC",$limit_event,$offset_event,0,0);
+	$list_Event = get_events("time_created DESC",$limit_event,$offset_event,0,0);
 	$body="";
 	foreach ($list_Event as $value){
 		$image=$value->get('image');
