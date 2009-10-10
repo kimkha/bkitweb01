@@ -18,6 +18,7 @@
         $users = get_users('waiting', 'time_created ASC', MAX_USER, ($page - 1 ) * MAX_USER, null, null);
         $event = get_data('SELECT * FROM event WHERE time_created = (SELECT MAX(time_created) FROM event);', 'event');
         $event = $event[0];
+        array_push($users, $event);
         $type = 'waiting';
     }
     else if ($_GET['type'] == 'Approved')

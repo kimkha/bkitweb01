@@ -12,6 +12,7 @@
     <td width="161">Fullname</td>
     <td width="165">Submition Day</td>
     <td width="259">Action</td>
+    <td width="259">{$users[count($users) - 1]->get('name')}</td>
   </tr> 
 EOT;
 
@@ -36,6 +37,7 @@ EOT;
 	          Waiting</label>
       </p>
      </td>
+     <td width="259"><input type="checkbox" name="chkEvent" id="checkbox"></td>
   </tr>
 EOT;
             }
