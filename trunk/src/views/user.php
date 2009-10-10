@@ -17,8 +17,8 @@
 	if(isset($vars['extend']['page']))
 		$page = $vars['extend']['page'];
 		
-	if(isset($vars['extend']['pageview']))
-		$page = $vars['extend']['pageview'];			
+	if(isset($vars['extend']['MAX_USER']))
+		$max_user = $vars['extend']['MAX_USER'];			
 	
 	$output ="Lỗi";
 	

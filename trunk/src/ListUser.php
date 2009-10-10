@@ -19,20 +19,20 @@
         $event = get_data('SELECT * FROM event WHERE time_created = (SELECT MAX(time_created) FROM event);', 'event');
         $event = $event[0];
         array_push($users, $event);
-        $type = 'waiting';
+        $type = 'Waiting';
     }
     else if ($_GET['type'] == 'Approved')
     {
         $users = get_users('approve', 'time_created ASC', MAX_USER, ($page - 1 ) * MAX_USER, null, null);
-        $type = 'approve';
+        $type = 'Approved';
     }
     else if ($_GET['type'] == 'Deny')
     {
         $users = get_users('deny', 'time_created ASC', MAX_USER, ($page - 1 ) * MAX_USER, null, null);
-        $type = 'deny';
+        $type = 'Deny';
     }
     
-    $vars = array('object' => $users, 'viewtype' => 'LISTUSER', 'extend' => array("status" => $type, "page" => $_GET['p'], '                                                                                                            pageview' => $_GET['p'] ));
+    $vars = array('object' => $users, 'viewtype' => 'LISTUSER', 'extend' => array("status" => $type, "page" => $_GET['p'],                                                                                                            'MAX_USER' => MAX_USER));
     $html = view('user', $vars);
     echo $html;  
 ?>

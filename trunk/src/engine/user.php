@@ -181,7 +181,7 @@ class BKITUser
     {
         $query = "SELECT * FROM profile WHERE uid = $by_user_id";
         $result = get_data($query,'user');
-        return $result; 
+        return $result[0]; 
     }
     function get_users($status = 'all', $order_by = 'time_created ASC', $limit = 10, $offset = 0, $min_time_created = 0, $max_time_created = 0)
     {
