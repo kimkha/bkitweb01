@@ -95,22 +95,22 @@
                 {
                     $bkit_object->set($key, $value);
                 }
+                if ($datatype == 'user')
+                {
+                    //get skillss
+                    $skills = array();
+                    $skills_query_result = db_query("SELECT * FROM user_skill WHERE uid = ".(int)$bkit_object->get('uid')." ;");
+                    while ($skill_row = mysql_fetch_assoc($skills_query_result))
+                    {
+                        $skill = new BKITUserSkill();
+                        $skill->key = (int)$skill_row['sid'];
+                        $skill->value['level'] = (int)$skill_row['level'];
+                        array_push($skills, $skill);
+                    }
+                    $bkit_object->set('skills', $skills);
+                }
+                array_push($bkit_object_array, $bkit_object);
                 
-				if($datatype == 'user'){
-					//get skills
-					$skills = array();
-					$skills_query_result = db_query("SELECT * FROM user_skill WHERE uid = ".(int)$bkit_object->get('uid')." ;");
-					while ($skill_row = mysql_fetch_assoc($skills_query_result))
-					{
-						$skill = new BKITUserSkill();
-						$skill->key = (int)$skill_row['sid'];
-						$skill->value['level'] = (int)$skill_row['level'];
-						array_push($skills, $skill);
-					}
-					$bkit_object->set('skills', $skills);
-				}
-					array_push($bkit_object_array, $bkit_object);
-				
           }
       }
       return $bkit_object_array;

@@ -152,4 +152,8 @@ CREATE TABLE IF NOT EXISTS `user_skill` (
 --
 -- Dumping data for table `user_skill`
 --
+CREATE TABLE IF NOT EXISTS `user_event` (
+  `uid` int(11) NOT NULL,
+  `eid` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
