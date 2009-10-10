@@ -2,7 +2,7 @@
 	// Truyền vào các biến $extend, $users[10], include("ListUser.php");
     
                              
-	if($status == 'waiting' ){
+	if($status == 'Waiting' ){
 				
 		$html = <<<EOT
 <form action="ListUserSaveAction.php" method="post" id="frmMain">
@@ -35,29 +35,35 @@ EOT;
 	        <label>
 	          <input type="radio" name="$i" value="Waiting" id="1_2" checked = "checked"/>
 	          Waiting</label>
+            <input name="hidUserID$i" type="hidden" id="hidUserID1" value="{$users[$i]->get('uid')}">
       </p>
      </td>
-     <td width="259"><input type="checkbox" name="chkEvent" id="checkbox"></td>
+     <td width="259"><input type="checkbox" name="chkEvent$i" id="checkbox"></td>
   </tr>
 EOT;
             }
 		// End
+        $prev_page = $page - 1;
+        $next_page = $page + 1;
 		$html .= <<<EOT
 </table>
 <p>
   <input type="submit" name="btnSave" id="btnSave" value="Save" />
-  <input name="type" type="hidden" id="type" value="waiting" />
-  <input name="p" type="hidden" id="p" value="<?php echo $page; ?>" />
+  <input name="type" type="hidden" id="type" value="Waiting" />
+  <input name="MAX_USER" type="hidden" id="p" value="$max_user" />
+  <input name="eventID" type="hidden" id="p" value="{$users[count($users) - 1]->get('eid')}" />
 </p>
 
 <p>
-$pageview
+<a href="ListUser.php?type=$type&p={$prev_page}">Trước </a>
+$page
+<a href="ListUser.php?type=$type&p={$next_page}">Sau </a>
 </p>
 </form>
 EOT;
        
 	}
-	else if($status == 'approve'){
+	else if($status == 'Approved'){
 				
 		$html = <<<EOT
 <form action="ListUserSaveAction.php" method="post" id="frmMain">
@@ -86,28 +92,33 @@ EOT;
         <label>
           <input type="radio" name="$i" value="Deny" id="1_1" />
           Deny</label>
-      </p>
+      <input name="hidUserID$i" type="hidden" id="hidUserID1" value="{$users[$i]->get('uid')}">
      </td>
   </tr>
 EOT;
             }
 		// End
+        $prev_page = $page - 1;
+        $next_page = $page + 1;
 		$html .= <<<EOT
 </table>
 <p>
   <input type="submit" name="btnSave" id="btnSave" value="Save" />
   <input name="type" type="hidden" id="type" value="Approved" />
-  <input name="p" type="hidden" id="p" value="<?php echo $page; ?>" />
+  <input name="MAX_USER" type="hidden" id="p" value="$max_user" />
+   
 </p>
 
 <p>
-$pageview
+<a href="ListUser.php?type=$type&p={$prev_page}">Trước </a>
+$page
+<a href="ListUser.php?type=$type&p={$next_page}">Sau </a>
 </p>
 </form>
 EOT;
        
 	}
-	else if($status == 'deny'){
+	else if($status == 'Deny'){
 				
 		$html = <<<EOT
 <form action="ListUserSaveAction.php" method="post" id="frmMain">
@@ -136,22 +147,26 @@ EOT;
         <label>
           <input type="radio" name="$i" value="Deny" id="1_1"  checked = "checked" />
           Deny</label>
-      </p>
+      <input name="hidUserID$i" type="hidden" id="hidUserID1" value="{$users[$i]->get('uid')}">
      </td>
   </tr>
 EOT;
             }
 		// End
+        $prev_page = $page - 1;
+        $next_page = $page + 1;
 		$html .= <<<EOT
 </table>
 <p>
   <input type="submit" name="btnSave" id="btnSave" value="Save" />
   <input name="type" type="hidden" id="type" value="Deny" />
-  <input name="p" type="hidden" id="p" value="<?php echo $page; ?>" />
+  <input name="MAX_USER" type="hidden" id="p" value="$max_user" />
 </p>
 
 <p>
-$pageview
+<a href="ListUser.php?type=$type&p={$prev_page}">Trước </a>
+$page
+<a href="ListUser.php?type=$type&p={$next_page}">Sau </a>
 </p>
 </form>
 EOT;
