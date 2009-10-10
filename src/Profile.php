@@ -4,7 +4,7 @@
     if ($bkit_user = get_user_login())
     {
 		//var_dump($bkit_user);
-		$vars = array('object' => $bkit_user, 'viewtype' => 'profile');
+		$vars = array('object' => $bkit_user, 'viewtype' => 'PROFILE');
         $html = view('user',$vars);
         echo $html;
 

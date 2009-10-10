@@ -1,11 +1,14 @@
 <?php
-	if(isset($obj))
-	if(is_array($obj))
-		$obj = array();
-	else
-		$obj = new BKITUser();
-	
-	$obj = $vars['object'];
+	if(isset($vars['object']))
+    {
+	    if(is_array($vars['object']))
+        {
+		    $users = $vars['object'];
+            $obj = $vars['object'];
+        }
+	    else
+		   $obj = $vars['object'];
+	}
 	$type = $vars['viewtype'];
 	
 	if(isset($vars['extend']['status']))

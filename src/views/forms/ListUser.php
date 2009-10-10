@@ -1,8 +1,8 @@
 <?php
-	// Truyền vào các biến $extend, $users[10], $page
-
+	// Truyền vào các biến $extend, $users[10], include("ListUser.php");
+    
                              
-	if($status == 'Waiting' ){
+	if($status == 'waiting' ){
 				
 		$html = <<<EOT
 <form action="ListUserSaveAction.php" method="post" id="frmMain">
@@ -55,7 +55,7 @@ $pageview
 EOT;
        
 	}
-	else if($status == 'Approved'){
+	else if($status == 'approve'){
 				
 		$html = <<<EOT
 <form action="ListUserSaveAction.php" method="post" id="frmMain">
@@ -105,7 +105,7 @@ $pageview
 EOT;
        
 	}
-	else if($status == 'Deny'){
+	else if($status == 'deny'){
 				
 		$html = <<<EOT
 <form action="ListUserSaveAction.php" method="post" id="frmMain">
