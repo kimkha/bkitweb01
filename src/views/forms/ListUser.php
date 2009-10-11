@@ -23,7 +23,7 @@ EOT;
             $html .=<<<EOT
     <tr>
     <td width="58">$i</td>
-    <td width="161">{$users[$i]->get('firstname')} {$users[$i]->get('lastname')}</td>
+    <td width="161"><a href="DisplayProfileInfor.php?user={$users[$i]->get('uid')}">{$users[$i]->get('firstname')} {$users[$i]->get('lastname')}</a></td>
     <td width="165">$submition_day</td>
     <td width="259">
 	 		<label>
@@ -83,7 +83,7 @@ EOT;
             $html .=<<<EOT
     <tr>
     <td width="58">$i</td>
-    <td width="161">{$users[$i]->get('firstname')} {$users[$i]->get('lastname')}</td>
+    <td width="161"><a href="DisplayProfileInfor.php?user={$users[$i]->get('uid')}">{$users[$i]->get('firstname')} {$users[$i]->get('lastname')} </a></td>
     <td width="165">$submition_day</td>
     <td width="259">
         <label>
@@ -138,7 +138,7 @@ EOT;
             $html .=<<<EOT
     <tr>
     <td width="58">$i</td>
-    <td width="161">{$users[$i]->get('firstname')} {$users[$i]->get('lastname')}</td>
+    <td width="161"><a href="DisplayProfileInfor.php?user={$users[$i]->get('uid')}">{$users[$i]->get('firstname')} {$users[$i]->get('lastname')}</a></td>
     <td width="165">$submition_day</td>
     <td width="259">
         <label>
