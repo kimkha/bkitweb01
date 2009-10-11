@@ -4,51 +4,66 @@
 
 		$html = <<<EOT
 
-<form action="Confirm.php" method="post" name="frmMain">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="DisplayProfileInfor.php?DBGSESSID=0@clienthost:7869&user={$obj->get('uid')}" method="post" name="frmMain">
 <table width="778" border="0">
   <tr>
     <td width="284" height="95" valign="top"><fieldset>
       <legend>Thông Tin Cá Nhân</legend>
       <p>
-        <legend>Thông Tin Cá Nhân</legend>
-      <p>
         <label><strong>Nguyện Vọng</strong></label>
       </p>
-      <p>$expectation</p>
+      <textarea name="txtExpectation" id="txtExpectation" cols="85" rows="5">$expectation</textarea>
       <p><strong>Sở Thích:</strong></p>
-      <p>$hobby</p>
+      <textarea name="txtExpectation" id="txtHobby" cols="85" rows="5">$hobby</textarea>
       <table width="275" border="1" align="left">
         <tr>
           <td width="103" nowrap="nowrap"><div align="right">Họ tên</div></td>
-          <td width="162"> $name </td>
+          <td width="162"> <input name="txtName" type="text" id="txtName" value="$name" size="30" /> </td>
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Ngày Sinh:</div></td>
-          <td> $birthday </td>
+          <td> <input name="txtBirthday" type="text" id="txtName" value="$birthday" size="30" /> </td>
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Giới Tính:</div></td>
-          <td> $sex</td>
+          <td>
+            <label>
+              <input name="radSex" type="radio" id="radSex_0" value="Male" checked="checked" />
+              Male</label>
+            <label>
+              <input type="radio" name="radSex" value="Female" id="radSex_1" />
+              Female</label>
+               </td>
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Sinh Viên Khóa:</div></td>
-          <td> $courseyear </td>
+          <td> 
+              <input name="lstCourse" type="text" id="txtName" value="$courseyear" size="30" />
+               </td>
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Địa Chỉ Liên Lạc</div></td>
-          <td> $address </td>
+          <td> <input name="txtAddress" type="text" id="txtName" value="$address" size="30" /> </td>
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Số Điện Thoại</div></td>
-          <td> $phone </td>
+          <td><input name="txtPhone" type="text" id="txtName" value="$phone" size="30" />  </td>
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">YahooID</div></td>
-          <td> $yahooid </td>
+          <td> <input name="txtYahoo" type="text" id="txtName" value="$yahooid" size="30" /> </td>
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Email:</div></td>
-          <td> $email </td>
+          <td> <input name="txtEmail" type="text" id="txtName" value="$email" size="30" /> </td>
         </tr>
       </table>
     </fieldset></td>
@@ -291,6 +306,8 @@
   </tr>
 </table>
 </form>
+</body>
+</html>
 EOT;
 
 	return $html;
