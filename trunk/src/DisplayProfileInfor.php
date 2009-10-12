@@ -20,20 +20,20 @@
         for ($i = 0;  $i < 10; $i++)
         {
             $skill = new BKITUserSkill();
-            $skill->key = $i;
+            $skill->key = $i + 1;
             $skill->value['level'] = (int)$_POST[$skills_name[$i]];
             $skill->value['skillname'] = (int)$_POST[$skills_name[$i]];
             array_push($skills_array,$skill);
         }
         
         $bkit_user->set('skills',$skills_array); 
-        if (is_int($bkit_user->save()))
-            echo 'Save succesfull';
+        if (is_string($bkit_user->save()))
+            echo 'Save succesfully';
     } else if (isset($_POST['btnDelete']))
     {
         $result = db_query("DELETE FROM profile WHERE uid = {$bkit_user->get('uid')}");
         if ($result != false)
-            echo 'Delete succesfull';
+            echo 'Delete succesfully';
     }
     else 
     {
