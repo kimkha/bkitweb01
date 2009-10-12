@@ -19,7 +19,7 @@
         for ($i = 0;  $i < 10; $i++)
         {
             $skill = new BKITUserSkill();
-            $skill->key = $i;
+            $skill->key = $i + 1;
             $skill->value['level'] = (int)$_POST[$skills_name[$i]];
             $skill->value['skillname'] = (int)$_POST[$skills_name[$i]];
             array_push($skills_array,$skill);

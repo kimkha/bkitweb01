@@ -1,7 +1,11 @@
 <?php
 		foreach($obj->_vinh_convertArray() as $key => $value)
 		$$key = $value;
-
+        $skill_value = array();
+        foreach ($obj->get('skills') as $key => $skill)
+        {
+            $skill_value[$skill->key] = $skill->value['level'];
+        }
 		$html = <<<EOT
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -12,7 +16,7 @@
 </head>
 
 <body>
-<form action="DisplayProfileInfor.php?DBGSESSID=0@clienthost:7869&user={$obj->get('uid')}" method="post" name="frmMain">
+<form action="DisplayProfileInfor.php?user={$obj->get('uid')}" method="post" name="frmMain">
 <table width="778" border="0">
   <tr>
     <td width="284" height="95" valign="top"><fieldset>
@@ -35,13 +39,8 @@
         <tr>
           <td nowrap="nowrap"><div align="right">Giới Tính:</div></td>
           <td>
-            <label>
-              <input name="radSex" type="radio" id="radSex_0" value="Male" checked="checked" />
-              Male</label>
-            <label>
-              <input type="radio" name="radSex" value="Female" id="radSex_1" />
-              Female</label>
-               </td>
+              <input type="text" name="radSex" value="$sex" id="radSex_1" />
+          </td>
         </tr>
         <tr>
           <td nowrap="nowrap"><div align="right">Sinh Viên Khóa:</div></td>
@@ -81,79 +80,27 @@
           <table width="400" border="0">
             <tr>
               <td width="169"><div align="right">Kỹ Năng CorelDraw, PTS</div></td>
-              <td><table width="219" border="0">
-                <tr>
-                  <td width="50"><label>
-                    <input name="PhotoshopSkill" type="radio" value="1" checked="checked" />
-                    1</label></td>
-                  <td width="51"><label>
-                    <input type="radio" name="PhotoshopSkill" value="2"/>
-                    2</label></td>
-                  <td width="52"><label>
-                    <input type="radio" name="PhotoshopSkill" value="3"/>
-                    3</label></td>
-                  <td width="48"><label>
-                    <input type="radio" name="PhotoshopSkill" value="4"/>
-                    4</label></td>
-                </tr>
-              </table></td>
+              <td>
+                    <input type="text" name="PhotoshopSkill" value="$skill_value[1]"/>
+              </td>
             </tr>
             <tr>
               <td><div align="right">HTML/CSS:</div></td>
-              <td><table width="219" border="0">
-                <tr>
-                  <td width="50"><label>
-                    <input name="HTMLSkill" type="radio" id="HTMLSkill" value="1" checked="checked" />
-                    1</label></td>
-                  <td width="51"><label>
-                    <input type="radio" name="HTMLSkill" value="2"/>
-                    2</label></td>
-                  <td width="52"><label>
-                    <input type="radio" name="HTMLSkill" value="3"/>
-                    3</label></td>
-                  <td width="48"><label>
-                    <input type="radio" name="HTMLSkill" value="4"/>
-                    4</label></td>
-                </tr>
-              </table></td>
+              <td>
+                    <input type="text" name="HTMLSkill" value="$skill_value[2]"/>
+              </td>
             </tr>
             <tr>
               <td><div align="right">JavaScript:</div></td>
-              <td><table width="219" border="0">
-                <tr>
-                  <td width="50"><label>
-                    <input name="JVScriptSkill" type="radio" value="1" checked="checked" />
-                    1</label></td>
-                  <td width="51"><label>
-                    <input type="radio" name="JVScriptSkill" value="2"/>
-                    2</label></td>
-                  <td width="52"><label>
-                    <input type="radio" name="JVScriptSkill" value="3"/>
-                    3</label></td>
-                  <td width="48"><label>
-                    <input type="radio" name="JVScriptSkill" value="4"/>
-                    4</label></td>
-                </tr>
-              </table></td>
+              <td>
+                    <input type="text" name="JVScriptSkill" value="$skill_value[3]"/>
+              </td>
             </tr>
             <tr>
               <td><div align="right">Flash, Sliverlight, Air:</div></td>
-              <td><table width="219" border="0">
-                <tr>
-                  <td width="50"><label>
-                    <input name="FlashSkill" type="radio" value="1" checked="checked" />
-                    1</label></td>
-                  <td width="51"><label>
-                    <input type="radio" name="FlashSkill" value="2" />
-                    2</label></td>
-                  <td width="52"><label>
-                    <input type="radio" name="FlashSkill" value="3" />
-                    3</label></td>
-                  <td width="48"><label>
-                    <input type="radio" name="FlashSkill" value="4" />
-                    4</label></td>
-                </tr>
-              </table></td>
+              <td>
+                    <input type="text" name="FlashSkill" value="$skill_value[4]" />
+              </td>
             </tr>
           </table>
         </div>
@@ -164,117 +111,39 @@
         <table width="400" border="0" cellspacing="0">
           <tr>
             <td width="172"><div align="right">PHP:</div></td>
-            <td width="224"><table width="219" border="0">
-              <tr>
-                <td width="50"><label>
-                  <input name="PHPSkill" type="radio" value="1" checked="checked" />
-                  1</label></td>
-                <td width="51"><label>
-                  <input type="radio" name="PHPSkill" value="2" />
-                  2</label></td>
-                <td width="52"><label>
-                  <input type="radio" name="PHPSkill" value="3" />
-                  3</label></td>
-                <td width="48"><label>
-                  <input type="radio" name="PHPSkill" value="4" />
-                  4</label></td>
-              </tr>
-            </table></td>
+            <td width="224">
+                  <input type="text" name="PHPSkill" value="$skill_value[5]" />
+            </td>
           </tr>
           <tr>
             <td><div align="right">ASP.NET:</div></td>
-            <td><table width="219" border="0">
-              <tr>
-                <td width="50"><label>
-                  <input name="ASPSkill" type="radio" value="1" checked="checked" />
-                  1</label></td>
-                <td width="51"><label>
-                  <input type="radio" name="ASPSkill" value="2" />
-                  2</label></td>
-                <td width="52"><label>
-                  <input type="radio" name="ASPSkill" value="3" />
-                  3</label></td>
-                <td width="48"><label>
-                  <input type="radio" name="ASPSkill" value="4" />
-                  4</label></td>
-              </tr>
-            </table></td>
+            <td>
+                  <input type="text" name="ASPSkill" value="$skill_value[6]" />
+            </td>
           </tr>
           <tr>
             <td><div align="right">JSP:</div></td>
-            <td><table width="219" border="0">
-              <tr>
-                <td width="50"><label>
-                  <input name="JSPSkill" type="radio" value="1" checked="checked" />
-                  1</label></td>
-                <td width="51"><label>
-                  <input type="radio" name="JSPSkill" value="2" />
-                  2</label></td>
-                <td width="52"><label>
-                  <input type="radio" name="JSPSkill" value="3" />
-                  3</label></td>
-                <td width="48"><label>
-                  <input type="radio" name="JSPSkill" value="radio" />
-                  4</label></td>
-              </tr>
-            </table></td>
+            <td>
+                  <input type="text" name="JSPSkill" value="$skill_value[7]" />
+            </td>
           </tr>
           <tr>
             <td><div align="right">Google Apps Engine:</div></td>
-            <td><table width="219" border="0">
-              <tr>
-                <td width="50" height="24"><label>
-                  <input name="GAESkill" type="radio" value="1" checked="checked" />
-                  1</label></td>
-                <td width="51"><label>
-                  <input type="radio" name="GAESkill" value="2"/>
-                  2</label></td>
-                <td width="52"><label>
-                  <input type="radio" name="GAESkill" value="3"/>
-                  3</label></td>
-                <td width="48"><label>
-                  <input type="radio" name="GAESkill" value="4"/>
-                  4</label></td>
-              </tr>
-            </table></td>
+            <td>
+                  <input type="text" name="GAESkill" value="$skill_value[8]"/>
+            </td>
           </tr>
           <tr>
             <td><div align="right">MySQL:</div></td>
-            <td><table width="219" border="0">
-              <tr>
-                <td width="50"><label>
-                  <input name="MySQLSkill" type="radio" value="1" checked="checked" />
-                  1</label></td>
-                <td width="51"><label>
-                  <input type="radio" name="MySQLSkill" value="2"/>
-                  2</label></td>
-                <td width="52"><label>
-                  <input type="radio" name="MySQLSkill" value="3"/>
-                  3</label></td>
-                <td width="48"><label>
-                  <input type="radio" name="MySQLSkill" value="4"/>
-                  4</label></td>
-              </tr>
-            </table></td>
+            <td>
+                  <input type="text" name="MySQLSkill" value="$skill_value[9]"/>
+            </td>
           </tr>
           <tr>
             <td height="30"><div align="right">MS SQL Server:</div></td>
-            <td><table width="219" border="0">
-              <tr>
-                <td width="50"><label>
-                  <input name="MSSQLSkill" type="radio" value="1" checked="checked" />
-                  1</label></td>
-                <td width="51"><label>
-                  <input type="radio" name="MSSQLSkill" value="2" />
-                  2</label></td>
-                <td width="52"><label>
-                  <input type="radio" name="MSSQLSkill" value="3" />
-                  3</label></td>
-                <td width="48"><label>
-                  <input type="radio" name="MSSQLSkill" value="4" />
-                  4</label></td>
-              </tr>
-            </table></td>
+            <td>
+                  <input type="text" name="MSSQLSkill" value="$skill_value[10]" />
+            </td>
           </tr>
         </table>
       </div>
