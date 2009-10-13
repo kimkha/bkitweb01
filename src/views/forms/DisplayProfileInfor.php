@@ -16,6 +16,13 @@
 </head>
 
 <body>
+<script>
+function confirmDelete(delUrl) {
+  if (confirm("Are you sure you want to delete")) {
+    document.location = delUrl;
+  }
+}
+</script>
 <form action="DisplayProfileInfor.php?user={$obj->get('uid')}" method="post" name="frmMain">
 <table width="778" border="0">
   <tr>
@@ -155,7 +162,8 @@
       <table width="290" border="0">
         <tr>
           <td width="87"><input type="submit" name="btnSave" id="btnSave" value="Save" /></td>
-          <td width="137" align="right" valign="top"><input type="submit" name="btnDelete" id="btnDelete" value="Delete" /></td>
+          <td width="137" align="right" valign="top"><input type="button" name="btnDelete" id="btnDelete" value="Delete"
+          onclick = "return confirmDelete('DeleteUser.php?uid={$obj->get('uid')}')" /></td>
         </tr>
       </table>
     </div></td>
@@ -177,6 +185,7 @@
 </form>
 </body>
 </html>
+
 EOT;
 
 	return $html;

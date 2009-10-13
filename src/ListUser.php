@@ -8,7 +8,7 @@
 <?php 
 	include('engine/start.php');
     define('MAX_USER', 10);
-	var_dump($_GET);
+	//var_dump($_GET);
     $page = 1;
     if (isset($_GET['p']))
         $page = (int)$_GET['p'];
