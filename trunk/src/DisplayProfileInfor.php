@@ -29,11 +29,6 @@
         $bkit_user->set('skills',$skills_array); 
         if (is_string($bkit_user->save()))
             echo 'Save succesfully';
-    } else if (isset($_POST['btnDelete']))
-    {
-        $result = db_query("DELETE FROM profile WHERE uid = {$bkit_user->get('uid')}");
-        if ($result != false)
-            echo 'Delete succesfully';
     }
     else 
     {
