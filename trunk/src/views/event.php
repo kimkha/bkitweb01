@@ -58,7 +58,7 @@ EOT;
 			break;	
 		case 'title':
 			$output= <<<EOT
-			<li><a href="Events.php?view=$eid"><B>[$eid]</B> $title</a></li>
+			<li><a href="Events.php?view=$eid"><B>[$name]</B> $title</a></li>
 EOT;
 			break;
  	
