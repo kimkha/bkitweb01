@@ -16,6 +16,10 @@
 	 foreach($obj->_convertArray() as $key => $value)
 			$$key = $value;
 
+	 if(is_admin_login() == true)
+	 	$admincp = "| <a href=\"EditEvent.php?id=".$eid."\">Edit <a href=\"DeletetEvent.php?id=".$eid."\">Delete</a>";
+ 	else
+ 		$admincp = "| <a href=\"EditEvent.php?id=".$eid."\">Edit <a href=\"DeletetEvent.php?id=".$eid."\">Delete</a>";
 	 
 	 switch($type){
 	 	case 'short':
@@ -29,7 +33,7 @@
 			
 				<h2><a href="Events.php?view=$eid"><B>[$name]</B> $title </a></h2>
 			
-				<p class="post-info">Posted by <a href="index.php">admin</a> | Viết lúc $time</a></p>
+				<p class="post-info">Viết lúc $time $admincp</p>
 				
 				<p>$headline</p>
 				<p><a href="Events.php?view=$eid" >Read More</a></p>
@@ -47,7 +51,7 @@ EOT;
 			
 				<h2><a href="Events.php?view=$eid"><B>[$name]</B> $title </a></h2>
 			
-				<p class="post-info">Posted by <a href="index.php">admin</a> | Viết lúc $time</a></p>
+				<p class="post-info">Viết lúc $time $admincp</p>
 				
 				<p>$content</p>
 				
