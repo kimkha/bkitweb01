@@ -222,8 +222,8 @@ class BKITUser
     function is_admin_login()
     {
         
-        $is_email = __user__is_valid_email($_COOKIE['user_email']);
-        $is_md5_password = __user__is_valid_md5_password($_COOKIE['user_password']);
+        $is_email = @__user__is_valid_email($_COOKIE['user_email']);
+        $is_md5_password = @__user__is_valid_md5_password($_COOKIE['user_password']);
         
         if (!$is_email || !$is_md5_password) 
             return FALSE;
