@@ -4,7 +4,7 @@ $admin=@is_admin_login();
 
 
 	$page=@$_GET['page'];
-	$view_num =  $_GET['view'];
+	$view_num =  @$_GET['view'];
 	
 	if(isset($view_num)){
 		
