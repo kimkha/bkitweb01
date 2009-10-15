@@ -26,7 +26,7 @@ $admin=@is_admin_login();
 	 	}
 	 	else{
 				$img_link="upload/images/".$_FILES["imageedit"]["name"];
-				$thumb_link=thumb_create($_FILES["imageedit"]["type"],$_FILES["imageedit"]["tmp_name"],200,150,$_FILES["imageedit"]["name"]);    		
+				$thumb_link=thumb_create($_FILES["imageedit"]["type"],$_FILES["imageedit"]["tmp_name"],150,150,$_FILES["imageedit"]["name"]);    		
 		}
 		$Event->set("eid",$eid);
 		$Event->set("name",$_POST['name']);
@@ -81,7 +81,7 @@ $admin=@is_admin_login();
 		
 	    $form=<<<EOT
 	    <div class="CreateEvent">
-	    <form action="EditEvent.php?act=do" method="post" enctype="multipart/form-data" name="EditEvent" id="CreateEvent" onSubmit="return validate()">
+	    <form action="EditEvent.php?eid=$eid&act=do" method="post" enctype="multipart/form-data" name="EditEvent" id="CreateEvent" onSubmit="return validate()">
 	      <table width="323" height="92" >
 	        <tr>
 	          <td width="49" height="23">Name</td>
@@ -102,14 +102,14 @@ $admin=@is_admin_login();
 	      <table width="323" height="92">
 	        <tr>
 	          <td><p>Headline</p>
-	          <textarea name="headline" id="headline" cols="45" rows="5">$old_headline</textarea>
+	          <textarea name="headline" id="headline" cols="45" rows="5" >$old_headline</textarea>
 	          </td>
 	          
 	        </tr>
 	        <tr>
 	          <td><p>Content</p>          
 	            <p>
-	              <textarea name="contentf" id="contentf" cols="45" rows="5">$old_content</textarea>
+	              <textarea name="contentf" id="contentf" cols="45" rows="5" >$old_content</textarea>
 	            </p>
 	            <p>
 	              <input type="submit" name="submit" value="Submit">
