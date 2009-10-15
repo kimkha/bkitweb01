@@ -17,9 +17,9 @@
 			$$key = $value;
 
 	 if(is_admin_login() == true)
-	 	$admincp = "| <a href=\"EditEvent.php?eid=".$eid."\">Edit <a href=\"DeletetEvent.php?id=".$eid."\">Delete</a>";
+	 	$admincp = "| <a href=\"EditEvent.php?eid=".$eid."\">Edit <a href=\"DeleteEvent.php?eid=".$eid."\">Delete</a>";
  	else
- 		$admincp = "| <a href=\"EditEvent.php?eid=".$eid."\">Edit <a href=\"DeletetEvent.php?id=".$eid."\">Delete</a>";
+ 		$admincp = "| <a href=\"EditEvent.php?eid=".$eid."\">Edit <a href=\"DeleteEvent.php?eid=".$eid."\">Delete</a>";
 	 
 	 switch($type){
 	 	case 'short':
