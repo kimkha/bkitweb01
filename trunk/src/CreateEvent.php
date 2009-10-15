@@ -18,7 +18,7 @@ if (@$_GET['act']== "do"){
  	}
  	else{			
 		$img_link="upload/images/".$_FILES["image"]["name"];
-		$thumb_link=thumb_create($_FILES["image"]["type"],$_FILES["image"]["tmp_name"],200,150,$_FILES["image"]["name"]);    		   	
+		$thumb_link=thumb_create($_FILES["image"]["type"],$_FILES["image"]["tmp_name"],150,150,$_FILES["image"]["name"]);    		   	
 	}
 	$Event->set("name",$_POST['name']);
 	$Event->set("title",$_POST['title']);
@@ -34,7 +34,7 @@ else
 {
 	
 	
-    $JS1='<script type="text/javascript" src="jscripts/Vu/_vu_validateEventForm.js"></script>';
+    $JS1='<script type="text/javascript" src="gen_validatorv31.js"></script>';
    	$JS2='<script type="text/javascript" src="jscripts/tiny_mce/tiny_mce.js"></script>';
     $JS3='<script type="text/javascript">
 	tinyMCE.init({
@@ -75,7 +75,7 @@ else
     
 	$form=<<<EOT
     <div class="CreateEvent">
-    <form action="CreateEvent.php?act=do" method="post" enctype="multipart/form-data" name="CreateEvent" id="CreateEvent" onSubmit="return validate()">
+    <form action="CreateEvent.php?act=do" method="post" enctype="multipart/form-data" name="CreateEvent" id="CreateEvent" >
       <table width="323" height="92" >
         <tr>
           <td width="49" height="23">Name</td>
@@ -110,6 +110,14 @@ else
       </table>
       </form>
     </div>
+	    <script language="JavaScript" type="text/javascript">
+	    	var frmvalidator = new Validator("CreateEvent");
+	    	frmvalidator.addValidation("name","req","Please enter your Name");
+	    	frmvalidator.addValidation("title","req","Please enter your title");
+	    	frmvalidator.addValidation("image","req","Please enter your image");
+	  	    frmvalidator.addValidation("headline","req","Please enter your headline");
+	  	    frmvalidator.addValidation("contentf","req","Please enter your Content");	    	
+	    </script>
 EOT;
 	page_draw('Create Event',$form); 		
 }
