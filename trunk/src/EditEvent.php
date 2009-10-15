@@ -7,7 +7,7 @@ $admin=@is_admin_login();
 //	page_draw('Edit Event',$note);
 //}
 //else{
-	$eid = @$_GET['eid'];
+	$eid = $_GET['eid'];
 	//$eid = 8;
 	
 	$old_Event=get_data("SELECT name,title,headline,content,image FROM event WHERE eid='{$eid}'","event" );
@@ -45,6 +45,7 @@ $admin=@is_admin_login();
 	    $JS3='<script type="text/javascript">
 		tinyMCE.init({
 			// General options
+			height : "250",
 			mode : "textareas",
 			theme : "advanced",
 			plugins : "safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount",
@@ -82,34 +83,34 @@ $admin=@is_admin_login();
 	    $form=<<<EOT
 	    <div class="CreateEvent">
 	    <form action="EditEvent.php?eid=$eid&act=do" method="post" enctype="multipart/form-data" name="EditEvent" id="CreateEvent">
-	      <table width="323" height="92" >
+	      <table width="569" height="92" >
 	        <tr>
 	          <td width="49" height="23">Name</td>
-	          <td width="258"><input type="text" name="name" id="name" value="$old_name"></td>
+	          <td width="258"><input type="text" name="name"  size="70" id="name" value="$old_name"></td>
 	        </tr>
 	        <tr>
 	          <td height="27">Title</td>
-	          <td><input type="text" name="title" id="title" value="$old_title"></td>
+	          <td ><input type="text" name="title" id="title" value="$old_title"  size="70"></td>
 	        </tr>
 	        <tr>
 	          <td height="50">Image</td>
 	          <td>
 	          		<p><img src="upload/images/$old_image" width="200" height="150" /></p>
-	          		<p><input type="file" name="imageedit" id="imageedit" value="fgsdfgsdfgdfg"> Chọn ảnh mới</p>
+	          		<p><input type="file" name="imageedit" id="imageedit" size="50"> Chọn ảnh mới</p>
 	          </td>
 	        </tr>
 	      </table>
-	      <table width="323" height="92">
+	      <table width="569" height="92">
 	        <tr>
 	          <td><p>Headline</p>
-	          <textarea name="headline" id="headline" cols="45" rows="5" >$old_headline</textarea>
+	          <textarea name="headline" id="headline" cols="95" rows="5" >$old_headline</textarea>
 	          </td>
 	          
 	        </tr>
 	        <tr>
 	          <td><p>Content</p>          
 	            <p>
-	              <textarea name="contentf" id="contentf" cols="45" rows="5" >$old_content</textarea>
+	              <textarea name="contentf" id="contentf" cols="95" rows="5" >$old_content</textarea>
 	            </p>
 	            <p>
 	              <input type="submit" name="submit" value="Submit">
@@ -120,7 +121,7 @@ $admin=@is_admin_login();
 	      </form>
 	      <p>&nbsp;</p>
 	    </div>
-	    <script language="JavaScript" type="text/javascript">
+	   	<script language="JavaScript" type="text/javascript">
 	    	var frmvalidator = new Validator("EditEvent");
 	    	frmvalidator.addValidation("name","req","Please enter your Name");
 	    	frmvalidator.addValidation("title","req","Please enter your title");

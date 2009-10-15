@@ -38,6 +38,7 @@ else
    	$JS2='<script type="text/javascript" src="jscripts/tiny_mce/tiny_mce.js"></script>';
     $JS3='<script type="text/javascript">
 	tinyMCE.init({
+		height : "250",
 		// General options
 		mode : "textareas",
 		theme : "advanced",
@@ -62,11 +63,6 @@ else
 		external_image_list_url : "lists/image_list.js",
 		media_external_list_url : "lists/media_list.js",
 
-		// Replace values for the template plugin
-		template_replace_values : {
-			username : "Some User",
-			staffid : "991234"
-		}
 	});
 	</script>';
 	extend('metatags',$JS1);
@@ -75,32 +71,32 @@ else
     
 	$form=<<<EOT
     <div class="CreateEvent">
-    <form action="CreateEvent.php?act=do" method="post" enctype="multipart/form-data" name="CreateEvent" id="CreateEvent" >
-      <table width="323" height="92" >
+    <form action="CreateEvent.php?act=do" method="post" enctype="multipart/form-data" name="CreateEvent" id="CreateEvent">
+      <table width="569" height="92" >
         <tr>
-          <td width="49" height="23">Name</td>
-          <td width="258"><input type="text" name="name" id="name"></td>
+          <td width="49" height="27">Name</td>
+          <td><input type="text" name="name" id="name" size="70"></td>
         </tr>
         <tr>
           <td height="27">Title</td>
-          <td><input type="text" name="title" id="title"></td>
+          <td><input type="text" name="title" id="title" size="70"></td>
         </tr>
         <tr>
-          <td height="29">Image</td>
-          <td><input type="file" name="image" id="image"></td>
+          <td height="27">Image</td>
+          <td><input type="file" name="image" id="image" size="50"></td>
         </tr>
       </table>
-      <table width="323" height="92">
+      <table width="569" height="92">
         <tr>
           <td><p>Headline</p>
-          <textarea name="headline" id="headline" cols="45" rows="5"></textarea>
+          <textarea name="headline" id="headline" cols="95" rows="5"></textarea>
           </td>
           
         </tr>
         <tr>
           <td><p>Content</p>          
             <p>
-              <textarea name="contentf" id="contentf" cols="45" rows="5"></textarea>
+              <textarea name="contentf" id="contentf" cols="95" rows="10"></textarea>
             </p>
             <p>
               <input type="submit" name="submit" value="Submit">
@@ -110,14 +106,14 @@ else
       </table>
       </form>
     </div>
-	    <script language="JavaScript" type="text/javascript">
-	    	var frmvalidator = new Validator("CreateEvent");
-	    	frmvalidator.addValidation("name","req","Please enter your Name");
-	    	frmvalidator.addValidation("title","req","Please enter your title");
-	    	frmvalidator.addValidation("image","req","Please enter your image");
-	  	    frmvalidator.addValidation("headline","req","Please enter your headline");
-	  	    frmvalidator.addValidation("contentf","req","Please enter your Content");	    	
-	    </script>
+    <script language="JavaScript" type="text/javascript">
+	    var frmvalidator = new Validator("CreateEvent");
+	    frmvalidator.addValidation("name","req","Please enter your Name");
+	    frmvalidator.addValidation("title","req","Please enter your title");
+	    frmvalidator.addValidation("image","req","Please enter your image");
+	  	frmvalidator.addValidation("headline","req","Please enter your headline");
+	  	frmvalidator.addValidation("contentf","req","Please enter your Content");	    	
+	</script>
 EOT;
 	page_draw('Create Event',$form); 		
 }
