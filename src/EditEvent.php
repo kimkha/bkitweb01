@@ -7,7 +7,7 @@ $admin=@is_admin_login();
 //	page_draw('Edit Event',$note);
 //}
 //else{
-	$eid = $_GET['eid'];
+	$eid = @$_GET['eid'];
 	//$eid = 8;
 	
 	$old_Event=get_data("SELECT name,title,headline,content,image FROM event WHERE eid='{$eid}'","event" );
@@ -40,7 +40,7 @@ $admin=@is_admin_login();
 	}
 	else
 	{
-		$JS1='<script type="text/javascript" src="jscripts/Vu/_vu_validateEventForm.js"></script>';
+		$JS1='<script type="text/javascript" src="gen_validatorv31.js"></script>';
 	   	$JS2='<script type="text/javascript" src="jscripts/tiny_mce/tiny_mce.js"></script>';
 	    $JS3='<script type="text/javascript">
 		tinyMCE.init({
@@ -81,7 +81,7 @@ $admin=@is_admin_login();
 		
 	    $form=<<<EOT
 	    <div class="CreateEvent">
-	    <form action="EditEvent.php?eid=$eid&act=do" method="post" enctype="multipart/form-data" name="EditEvent" id="CreateEvent" onSubmit="return validate()">
+	    <form action="EditEvent.php?eid=$eid&act=do" method="post" enctype="multipart/form-data" name="EditEvent" id="CreateEvent">
 	      <table width="323" height="92" >
 	        <tr>
 	          <td width="49" height="23">Name</td>
@@ -120,6 +120,14 @@ $admin=@is_admin_login();
 	      </form>
 	      <p>&nbsp;</p>
 	    </div>
+	    <script language="JavaScript" type="text/javascript">
+	    	var frmvalidator = new Validator("EditEvent");
+	    	frmvalidator.addValidation("name","req","Please enter your Name");
+	    	frmvalidator.addValidation("title","req","Please enter your title");
+	    	frmvalidator.addValidation("image","req","Please enter your image");
+	  	    frmvalidator.addValidation("headline","req","Please enter your headline");
+	  	    frmvalidator.addValidation("contentf","req","Please enter your Content");	    	
+	    </script>
 EOT;
 		page_draw('Edit Event',$form);  		
 	}
